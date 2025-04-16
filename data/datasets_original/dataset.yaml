@@ -1,0 +1,7 @@
+names:
+- powerline
+nc: 1
+path: C:\Users\Daniel Roberts\Downloads\HydroOne\data\two_stage\powerline\datasets
+test: test/images
+train: train/images
+val: val/images

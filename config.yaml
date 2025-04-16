@@ -1,0 +1,87 @@
+# Powerline Sleeve Detection Configuration
+
+# Paths
+paths:
+  data_dir: "data"
+  raw_images: "data/raw"
+  labeled_images: "data/labeled"
+  processed_dataset: "data/processed"
+  models_dir: "models"
+  results_dir: "results"
+
+# Acquisition
+acquisition:
+  api_key: ${GOOGLE_API_KEY}  # Google Street View API key
+  image_size: [640, 640]
+  cache_enabled: true
+  cache_dir: "data/cache"
+  distance_interval: 10  # meters between consecutive images
+
+# Labeling
+labeling:
+  tool: "labelme"  # Tool used for manual labeling
+  classes: ["powerline", "sleeve"]
+  auto_labeling:
+    confidence_threshold: 0.5
+    iou_threshold: 0.45
+
+# Dataset
+dataset:
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+  yolo_format: true
+  augmentation:
+    enabled: true
+    rotation_range: 15
+    brightness_range: [0.8, 1.2]
+    contrast_range: [0.8, 1.2]
+    horizontal_flip: true
+    vertical_flip: false
+
+# Training
+training:
+  # Common parameters
+  batch_size: 16
+  epochs: 100
+  image_size: [640, 640]
+  patience: 15  # Early stopping
+  optimizer: "Adam"
+  learning_rate: 0.001
+  device: "cuda"  # or "cpu"
+  
+  # Powerline detection model
+  powerline:
+    model_type: "yolov8n"
+    pretrained: true
+    classes: ["powerline"]
+  
+  # Sleeve detection model
+  sleeve:
+    model_type: "yolov8n"
+    pretrained: true
+    classes: ["sleeve"]
+    two_stage: true  # Use two-stage detection (powerline first, then sleeve)
+
+# Detection
+detection:
+  confidence_threshold: 0.4
+  iou_threshold: 0.45
+  max_detections: 100
+  batch_size: 16
+  ensemble:
+    enabled: false
+    models: []
+    weights: []
+    method: "weighted_boxes_fusion"
+
+# Visualization
+visualization:
+  save_images: true
+  draw_bounding_boxes: true
+  line_thickness: 2
+  text_size: 1.0
+  map:
+    enabled: true
+    zoom_level: 15
+    marker_size: 5 

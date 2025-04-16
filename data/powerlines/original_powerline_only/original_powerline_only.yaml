@@ -1,0 +1,6 @@
+names:
+  0: powerline
+path: /Users/danielroberts/Downloads/object_detection_powerline_sleeve/data/powerlines/original_powerline_only
+test: test/images
+train: train/images
+val: val/images

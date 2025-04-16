@@ -84,4 +84,35 @@ visualization:
   map:
     enabled: true
     zoom_level: 15
-    marker_size: 5 
+    marker_size: 5
+
+# Configuration for YOLOv8 Training
+
+# --- Dataset Configuration ---
+# Path to the YOLOv8 dataset YAML file (e.g., data.yaml)
+# This file defines train/val/test paths and class names.
+dataset_yaml_path: path/to/your/dataset/data.yaml  # *** ADJUST THIS PATH ***
+
+# --- Model Configuration ---
+# Pre-trained model to start from (e.g., yolov8n.pt, yolov8s.pt, yolov8m.pt)
+# Or path to a previously trained model checkpoint (.pt file)
+model_type: yolov8n.pt
+
+# --- Training Hyperparameters ---
+hyperparameters:
+  epochs: 100          # Number of training epochs
+  batch_size: 16       # Batch size (-1 for AutoBatch)
+  image_size: 640      # Input image size (pixels)
+  learning_rate: 0.01  # Initial learning rate (lr0)
+  # Add other YOLOv8 train arguments here if needed (e.g., optimizer, patience, weight_decay)
+  # See: https://docs.ultralytics.com/modes/train/#arguments
+
+# --- Output Configuration ---
+# Directory to save results (weights, logs, plots)
+output:
+  project_name: results/YOLOv8_Training  # Base directory for all experiments
+  experiment_name: experiment1           # Specific name for this run (e.g., powerlines_v1, sleeves_augmented)
+
+# --- Environment Configuration ---
+# Device to use: 'cpu', '0' (for GPU 0), '0,1,2,3' (for multiple GPUs)
+device: 'cpu' # *** ADJUST IF USING GPU *** 

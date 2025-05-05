@@ -1,0 +1,90 @@
+{
+  "version": "5.3.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "powerline",
+      "points": [
+        [
+          0.6057600000000036,
+          0.0
+        ],
+        [
+          309.69696,
+          600.0
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          127.27264,
+          0.6060800000000199
+        ],
+        [
+          304.24224000000004,
+          413.33312
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          1.212159999999983,
+          404.84832000000006
+        ],
+        [
+          233.9392,
+          499.3936
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          0.6057600000000036,
+          523.0304
+        ],
+        [
+          207.27264,
+          578.18176
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          1.2118399999999951,
+          593.9392
+        ],
+        [
+          200.60576,
+          635.1513600000001
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "pl_r011_p6_right_h134_p30_fov40.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

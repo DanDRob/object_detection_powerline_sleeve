@@ -2,7 +2,7 @@ route_id,start_location,end_location,save_images,draw_detections,generate_map
 001,"Toronto City Hall, Toronto, ON","Ontario Science Centre, Toronto, ON",true,true,true
 002,"Union Station, Toronto, ON","CN Tower, Toronto, ON",true,true,true
 003,"University of Toronto, Toronto, ON","Royal Ontario Museum, Toronto, ON",true,true,true
-004,"Pearson Airport, Toronto, ON","Vaughan Mills, Vaughan, ON",true,true,true
+004,"617 Eglington Ave E, Toronto, ON","936 Eglington Ave E, Toronto, ON",true,true,true
 005,"High Park, Toronto, ON","Kensington Market, Toronto, ON",true,true,true
 006,"Yonge-Dundas Square, Toronto, ON","St. Lawrence Market, Toronto, ON",true,true,true
 007,"Toronto Zoo, Toronto, ON","Canada's Wonderland, Vaughan, ON",true,true,true

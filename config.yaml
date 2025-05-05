@@ -9,17 +9,47 @@ paths:
   models_dir: "models"
   results_dir: "results"
 
+api:
+  key: ${GOOGLE_API_KEY}
+  min_request_interval: 0.1
+  max_retries: 3
+  retry_delay: 1.0
+  image_width: 640
+  image_height: 640
+
+sampling:
+  base_interval: 20.0 # meters
+  max_extra_points: 5
+
+camera:
+  altitude: 2.5 # meters
+  pitch_values: [0, 30, 60]
+  fov_default: [55]
+  fov_special: [40]
+  relative_angles_right: [90, 45, 135]
+  relative_angles_left: [270, 310, 230]
+
+powerline:
+  offset_distance: 10.0 # meters from road centerline
+  side: "both" # right, left, or both
+
+system:
+  output_dir: "output"
+  num_workers: 8
+  debug: false
+  cache_dir: ".cache"
+
 # Acquisition
 acquisition:
-  api_key: ${GOOGLE_API_KEY}  # Google Street View API key
+  api_key: ${GOOGLE_API_KEY} # Google Street View API key
   image_size: [640, 640]
   cache_enabled: true
   cache_dir: "data/cache"
-  distance_interval: 10  # meters between consecutive images
+  distance_interval: 20 # meters between consecutive images
 
 # Labeling
 labeling:
-  tool: "labelme"  # Tool used for manual labeling
+  tool: "labelme" # Tool used for manual labeling
   classes: ["powerline", "sleeve"]
   auto_labeling:
     confidence_threshold: 0.5
@@ -45,23 +75,23 @@ training:
   batch_size: 16
   epochs: 100
   image_size: [640, 640]
-  patience: 15  # Early stopping
+  patience: 15 # Early stopping
   optimizer: "Adam"
   learning_rate: 0.001
-  device: "cuda"  # or "cpu"
-  
+  device: "cuda" # or "cpu"
+
   # Powerline detection model
   powerline:
     model_type: "yolov8n"
     pretrained: true
     classes: ["powerline"]
-  
+
   # Sleeve detection model
   sleeve:
     model_type: "yolov8n"
     pretrained: true
     classes: ["sleeve"]
-    two_stage: true  # Use two-stage detection (powerline first, then sleeve)
+    two_stage: true # Use two-stage detection (powerline first, then sleeve)
 
 # Detection
 detection:
@@ -91,7 +121,7 @@ visualization:
 # --- Dataset Configuration ---
 # Path to the YOLOv8 dataset YAML file (e.g., data.yaml)
 # This file defines train/val/test paths and class names.
-dataset_yaml_path: path/to/your/dataset/data.yaml  # *** ADJUST THIS PATH ***
+dataset_yaml_path: path/to/your/dataset/data.yaml # *** ADJUST THIS PATH ***
 
 # --- Model Configuration ---
 # Pre-trained model to start from (e.g., yolov8n.pt, yolov8s.pt, yolov8m.pt)
@@ -100,19 +130,19 @@ model_type: yolov8n.pt
 
 # --- Training Hyperparameters ---
 hyperparameters:
-  epochs: 100          # Number of training epochs
-  batch_size: 16       # Batch size (-1 for AutoBatch)
-  image_size: 640      # Input image size (pixels)
-  learning_rate: 0.01  # Initial learning rate (lr0)
+  epochs: 100 # Number of training epochs
+  batch_size: 32 # Batch size (-1 for AutoBatch)
+  image_size: 640 # Input image size (pixels)
+  learning_rate: 0.005 # Initial learning rate (lr0)
   # Add other YOLOv8 train arguments here if needed (e.g., optimizer, patience, weight_decay)
   # See: https://docs.ultralytics.com/modes/train/#arguments
 
 # --- Output Configuration ---
 # Directory to save results (weights, logs, plots)
 output:
-  project_name: results/YOLOv8_Training  # Base directory for all experiments
-  experiment_name: experiment1           # Specific name for this run (e.g., powerlines_v1, sleeves_augmented)
+  project_name: results/YOLOv8_Training # Base directory for all experiments
+  experiment_name: experiment1 # Specific name for this run (e.g., powerlines_v1, sleeves_augmented)
 
 # --- Environment Configuration ---
 # Device to use: 'cpu', '0' (for GPU 0), '0,1,2,3' (for multiple GPUs)
-device: 'cpu' # *** ADJUST IF USING GPU *** 
+device: "cpu" # *** ADJUST IF USING GPU ***

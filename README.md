@@ -18,6 +18,7 @@ This project detects powerline sleeves from Google Street View images using YOLO
 │   └── processed/             # Processed datasets (train/val/test splits)
 ├── models/                    # Trained models
 ├── results/                   # Detection results
+├── scripts/                   # Support functions for dataset validation & conversions
 └── src/
     ├── __init__.py
     ├── acquisition/           # Image acquisition from Street View

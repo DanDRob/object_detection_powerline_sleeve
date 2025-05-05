@@ -9,54 +9,92 @@ This project detects powerline sleeves from Google Street View images using YOLO
 ├── README.md                  # This file
 ├── run.py                     # Main entry point to run the full pipeline
 ├── config.yaml                # Configuration parameters
-├── data/                      # Directory for storing datasets
-│   ├── raw/                   # Raw images
+├── .env                       # Environment variables (e.g., GOOGLE_API_KEY)
+├── requirements.txt           # Python dependencies
+├── data/
+│   ├── routes.csv             # CSV file defining routes for acquisition
+│   ├── raw/                   # Raw images downloaded by acquisition
 │   ├── labeled/               # Manually labeled images
 │   └── processed/             # Processed datasets (train/val/test splits)
 ├── models/                    # Trained models
 ├── results/                   # Detection results
-└── src/                       # Source code
+└── src/
+    ├── __init__.py
     ├── acquisition/           # Image acquisition from Street View
-    ├── labeling/              # Tools for manual and auto-labeling
-    ├── dataset/               # Dataset preparation and splitting
-    ├── training/              # Model training and evaluation
-    │   ├── powerline/         # Powerline detection
-    │   └── sleeve/            # Sleeve detection
-    ├── detection/             # Inference code
-    ├── visualization/         # Result visualization
-    └── utils/                 # Utility functions
+    │   ├── __init__.py
+    │   ├── acquisition_run.py # Main script for the acquisition module
+    │   ├── route_processor.py # Plans routes, interpolates points (will be renamed ideally)
+    │   ├── streetview_client.py # Interacts with Google Street View API
+    │   ├── cache_manager.py   # Caches downloaded images
+    │   └── image_processor.py # Saves images (can be extended)
+    ├── labeling/
+    ├── dataset/
+    ├── training/
+    │   ├── powerline/
+    │   └── sleeve/
+    ├── detection/
+    ├── visualization/
+    └── utils/
 ```
 
 ## Modules
 
-1. **Acquisition**: Fetch images from Google Street View based on routes
-2. **Labeling**: Tools for manual and automated labeling of images
-3. **Dataset**: Prepare datasets for training (splitting, augmentation)
-4. **Training**: Train YOLOv8 models for powerline and sleeve detection
-5. **Detection**: Run inference on new images
-6. **Visualization**: Visualize detection results
+1.  **Acquisition**: Fetch images from Google Street View based on routes defined in `data/routes.csv`.
+2.  **Labeling**: Tools for manual and automated labeling of images.
+3.  **Dataset**: Prepare datasets for training (splitting, augmentation).
+4.  **Training**: Train YOLOv8 models for powerline and sleeve detection.
+5.  **Detection**: Run inference on new images.
+6.  **Visualization**: Visualize detection results.
+
+## Setup
+
+1.  **Clone the repository.**
+2.  **Create Environment:** Create a virtual environment (recommended):
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    ```
+3.  **Install Dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+4.  **API Key:** Create a `.env` file in the project root directory and add your Google Cloud API Key:
+    ```
+    GOOGLE_API_KEY=YOUR_ACTUAL_API_KEY
+    ```
+    Ensure this key has permissions for the **Google Directions API** and the **Street View Static API**.
+5.  **Define Routes:** Create or modify the `data/routes.csv` file with columns `route_id`, `start_location`, `end_location`.
 
 ## Usage
 
-Each module can be run independently:
+Modules can often be run independently, or the full pipeline via `run.py` (if implemented).
+
+````bash
+# Example: Run the image acquisition module from the project root
+python -m src.acquisition.acquisition_run
+
 
 ```python
-# Acquire images
-from src.acquisition import acquire_images
-acquire_images(route_file="routes.csv")
+# Example: Programmatic usage (if needed)
+from src.acquisition import run_acquisition
 
-# Train powerline detection model
-from src.training.powerline import train_powerline_model
-train_powerline_model()
-
-# Or run the entire pipeline
-python run.py
-```
+# Ensure .env is loaded or GOOGLE_API_KEY is set in the environment
+run_acquisition(route_id="004")
+````
 
 ## Requirements
+
+See `requirements.txt`. Key dependencies include:
 
 - Python 3.8+
 - PyTorch
 - Ultralytics YOLOv8
-- OpenCV
-- Pandas 
+- OpenCV-Python
+- Pandas
+- Requests
+- PyYAML
+- polyline
+- geopy
+- pyproj
+- Pillow
+- python-dotenv

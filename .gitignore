@@ -95,6 +95,7 @@ runs/
 # Output files
 output/
 results/
+data/cache/
 
 # Temporary files
 tmp/

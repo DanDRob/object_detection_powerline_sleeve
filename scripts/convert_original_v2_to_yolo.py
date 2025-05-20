@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 """
 Converts the labelme JSON annotations in the original_v2 folder to YOLO txt format.
 Creates a structure that matches the original folder with test/train/val containing 

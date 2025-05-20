@@ -1,6 +1,6 @@
+nc: 1
 names:
-  0: powerline
-path: /Users/danielroberts/Downloads/object_detection_powerline_sleeve/data/powerlines/original
+- powerline
 test: test/images
 train: train/images
 val: val/images

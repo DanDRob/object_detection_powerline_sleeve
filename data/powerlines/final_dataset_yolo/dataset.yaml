@@ -1,7 +1,7 @@
-
-path: C:\Users\Daniel Roberts\Downloads\object_detection_powerline_sleeve\data\powerlines\final_dataset_yolo
+nc: 1
+names:
+- powerline
+test: test/images
 train: train/images
 val: val/images
 
-nc: 1
-names: ['powerline']

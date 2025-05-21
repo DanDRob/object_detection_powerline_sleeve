@@ -73,6 +73,78 @@
       "shape_type": "rectangle",
       "flags": {},
       "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          454.94897959183675,
+          205.71428571428575
+        ],
+        [
+          525.8673469387755,
+          175.61224489795921
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          175.86734693877554,
+          248.06122448979596
+        ],
+        [
+          219.74489795918367,
+          203.1632653061225
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          234.54081632653066,
+          237.8571428571429
+        ],
+        [
+          295.76530612244903,
+          213.36734693877554
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          395.76530612244903,
+          54.18367346938778
+        ],
+        [
+          150.3571428571429,
+          33.265306122449005
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
     }
   ],
   "imagePath": "pl_r004_p59_right_h119_p0_fov40.jpg",

@@ -37,6 +37,42 @@
       "shape_type": "rectangle",
       "flags": {},
       "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          361.58163265306126,
+          572.0408163265306
+        ],
+        [
+          279.94897959183675,
+          580.7142857142857
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          269.234693877551,
+          579.1836734693877
+        ],
+        [
+          214.64285714285717,
+          611.8367346938776
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
     }
   ],
   "imagePath": "pl_r004_p47_left_h304_p30_fov40.jpg",

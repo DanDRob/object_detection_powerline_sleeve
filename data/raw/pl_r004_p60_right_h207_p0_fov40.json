@@ -73,6 +73,24 @@
       "shape_type": "rectangle",
       "flags": {},
       "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          41.17346938775515,
+          117.44897959183676
+        ],
+        [
+          118.7244897959184,
+          132.2448979591837
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
     }
   ],
   "imagePath": "pl_r004_p60_right_h207_p0_fov40.jpg",

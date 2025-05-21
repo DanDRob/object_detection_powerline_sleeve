@@ -24,12 +24,12 @@
       "label": "powerline",
       "points": [
         [
-          160.56122448979593,
-          539.3877551020408
+          160.05102040816328,
+          539.8979591836735
         ],
         [
-          639.0000000000001,
-          515.0861030126337
+          400.86734693877554,
+          530.204081632653
         ]
       ],
       "group_id": null,
@@ -48,6 +48,78 @@
         [
           305.4591836734694,
           552.6530612244898
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          404.4387755102041,
+          533.7755102040816
+        ],
+        [
+          640.0,
+          514.3877551020407
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          405.4591836734694,
+          552.1428571428571
+        ],
+        [
+          640.0,
+          538.3673469387754
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          158.52040816326533,
+          590.4081632653061
+        ],
+        [
+          293.2142857142857,
+          575.6122448979592
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          539.1326530612246,
+          574.5918367346939
+        ],
+        [
+          640.0,
+          557.7551020408163
         ]
       ],
       "group_id": null,

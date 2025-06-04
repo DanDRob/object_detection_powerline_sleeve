@@ -1,0 +1,40 @@
+<goal>
+- I have been given a project by a Canadian, specifically Ontario, electricity provider, HydroOne. The project goal/aim is to find the total number of powerline sleeves found throughout the province. 
+</goal>
+<current_implementation_steps>
+- The process and steps I have decided upon is utilzing object detection with YOLOv12l via the ultralytics python library. I will use a multi-step process:
+    - Collecting images locally via google streetview api.
+        - The routes/ roads in which to collect the images from are found in a csv file called routes.csv.
+            - Each route has the following attributes: route_id, start_location,end_location, save_images, draw_detections, generate_map
+        - The parameters to be used for the streetview api are found in the config.yaml file in the root directory.
+            - The detailed configuration is found under api, sampling, camera, powerline & system. 
+                - api contains features such as the api key, number of retries allowed, and the length and width (dimensions) of the images.
+                - sampling contains the desired distance between each point along the route.
+                - camera contains the features for images to be taken at each specific point. For example it contains the pitch, fov, angles and altitude values. 
+                - powerline contains the estimated distance between the centreline of the road and the powerlines and if the program should capture both sides of the road or only the left or right sides.
+
+    - Labeling the various routes and the subsequent images captured using labelme a model to detect powerlines as the sleeves can only be found on powerlines.
+        - Labelme produces a json file containing labels for each of the images thus a script to convert these labels to the required format for YOLO models such as labels being in a txt file, and normalization of the location of the each of the labels to between 0 and 1 was conducted. Additionally spliting these images into train and val sets or train, val and test sets was conducted. (85% train, and 15% val).
+    - Various additional python scripts were created to also check and verify the dataset/sets
+    - Utilizing lambdalabs gpu instance renting a a YOLOv12l model was trained on over labeled 2600 images with around 60% containing powerlines.
+        - The parameters and configuration used to training the model is found in the config.yaml file under the comment/section: # Configuration for YOLOv12l Training
+        - The model yield around 77% precision and recall scores which was satisfactory.
+    - I then collected images along a new route which would act as an unseen dataset to check the models ability to perform on unseen data and using a confidence of 0.25 and manually checking all the 168 images, 1-2 images w/ powerlines were missed and 1-2 images w/o powerlines were detected to have.
+    - Now that the powerline model is verified it will act as a filter for the detection of powerline sleeves. As we know sleeves can only be found on powerlines thus images without powerlines will be useless be wasted images to then pass to the trained sleeve model, causing noise which might lead to incorrect predictions to be made. The sleeves on the powerlines are very small and thin and thus this is one of tactics I have employeed to maximize the sleeve model performance.
+</current_implementation_steps>
+<current_status>
+I am currently labeling images to then train a new model on powerline sleeves also called connectors or sleeves.  
+</current_status>
+
+<improvements>
+- Presently the route only goes in one direction and I believe google streetview actually doesnt capture images from centre-line but rather from either side of the road depending on the direction heading. Therefore, instead of going along a route in only one direction and looking at both sides, I could just go from the start to end locations and then from the end to start location, in the opposite direction and on the other side of the road along a route. This would allow a narrower set of camera parameters to be used, thus enabling a reduction in the number of images captured while retaining important datapoints along the route for the ultimate goal of collecting powerline sleeves for labeling and then detecting them in the future for inference.
+- Presently all routes are found within the routes.csv file. This has been used to be able to gather specific routes I deem as import for training as they have data I want. But when all the training is complete and the model is ready to conduct inference, this approach will be unsatisfactory and not feasbile. As the project needs to be able to find the sleeves for all of ontario, putting start to end locations to cover such a large area is impossible. Thus an algorithm which will automatically find routes, and connect them, to be able to get all the converage required is necessary.
+- Currently all files are stored locally but again for the future direction of the project will the vast amount of data and images to be collected this approach is not feasible. Thus some kind of hosted service which can hold all of these images and allow the quick and efficient retrieval for the program to be able to conduct inference on is important. 
+- The goal is not simply to just be able to give a total number of sleeves. This is one very important metric, but I need the ability to be able to know the number of sleeves in specific areas, along specific roads, towns, cities, etc. Thus the images captured have to have a clear and detailed naming scheme. This in addition to any other important considerations such as the optimal way to record which images have contain sleeves and then this being used in the future. I am assuming metadata must be associated with each images connected via some kind of unique id to achieve this.
+- From this metadata, a web application will be created, which will contain an interactive google maps with filters, sorting etc. A heatmap and other potentially advanced visualizations will be projected onto the map and again with different options for the user. In addition to this a data-table will be present to give a detailed breakdown of the results.
+- The program does not contain extensive testing via unit tests and other methods which is needed. 
+- Improved documentation: updates and changes for each folder via README.md files.
+- The ability for a new user to read through the code and understand all the functions and workflow so that the knowledge and codebase transfer is smooth and easy.
+- Make program much more modular, for example the local storage and manual collection of images via individual specified routes is important, while allowing the scaling of the system as spoken about above. 
+- As I am not coding the project via lambdalabs and simply only using it for training, tuning and validation of models and then after that is completed, for inference using the entire pipeline, the specific aspects of the code related to sleeve prediction must be able to be run via lambdalabs and the subsequent environment it allows without any issues (seemlessly).
+</improvements>

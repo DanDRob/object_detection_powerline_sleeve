@@ -18,7 +18,7 @@ api:
   image_height: 640
 
 sampling:
-  base_interval: 20.0 # meters
+  base_interval: 15.0 # meters
   max_extra_points: 5
 
 camera:
@@ -35,7 +35,7 @@ powerline:
 
 system:
   output_dir: "output"
-  num_workers: 8
+  num_workers: 12
   debug: false
   cache_dir: ".cache"
 
@@ -125,7 +125,7 @@ visualization:
     zoom_level: 15
     marker_size: 5
 
-# Configuration for YOLOv8 Training
+# Configuration for YOLOv12l Training
 
 # --- Dataset Configuration ---
 # Path to the YOLOv8 dataset YAML file (e.g., data.yaml)
@@ -241,4 +241,17 @@ tune:
   patience: 20 # Stop tuning run early if no improvement
 
   # Resume configuration
-  resume: False # Set to True to resume interrupted tuning session
+  resume: True # Set to True to resume interrupted tuning session
+
+# --- Inference Configuration ---
+
+powerline_inference:
+  project: results/powerline/inference # Base directory for all experiments
+  name: exp1
+  model: results/YOLOv12l_final_dataset/exp1/weights/best.pt
+  source: data/tests/powerline/inference_test
+  save: True
+  save_conf: True
+  conf: 0.25
+  half: True
+  imgsz: 640

@@ -1,0 +1,106 @@
+{
+  "version": "5.3.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "powerline",
+      "points": [
+        [
+          658.0002000000001,
+          238.00002450000002
+        ],
+        [
+          705.0006,
+          255.0001475
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          562.0002000000001,
+          159.9998995
+        ],
+        [
+          612.0006,
+          182.00017849999998
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          475.9998,
+          167.00005000000002
+        ],
+        [
+          523.0002,
+          193.999806
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          471.0,
+          249.9999915
+        ],
+        [
+          516.0,
+          277.9999145
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          577.0002,
+          328.0001165
+        ],
+        [
+          622.9998,
+          350.9998835
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          489.0,
+          339.000256
+        ],
+        [
+          534.0,
+          363.00019000000003
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "f48.png",
+  "imageData": null,
+  "imageHeight": 679,
+  "imageWidth": 1200
+}

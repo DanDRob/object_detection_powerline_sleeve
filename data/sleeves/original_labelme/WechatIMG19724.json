@@ -1,0 +1,42 @@
+{
+  "version": "5.3.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "powerline",
+      "points": [
+        [
+          107.99967199999999,
+          69.00011199999999
+        ],
+        [
+          145.999952,
+          83.000152
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          25.000366000000003,
+          145.000244
+        ],
+        [
+          51.00019400000001,
+          157.000108
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "WechatIMG19724.jpg",
+  "imageData": null,
+  "imageHeight": 596,
+  "imageWidth": 628
+}

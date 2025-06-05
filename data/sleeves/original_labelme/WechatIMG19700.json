@@ -1,0 +1,122 @@
+{
+  "version": "5.3.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "powerline",
+      "points": [
+        [
+          57.99984,
+          72.99948
+        ],
+        [
+          98.00016,
+          92.999672
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          208.00032,
+          107.000068
+        ],
+        [
+          257.00064,
+          121.00002799999999
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          499.0003200000001,
+          151.000316
+        ],
+        [
+          547.0003200000001,
+          173.000004
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          603.0,
+          173.000004
+        ],
+        [
+          634.0003200000001,
+          194.00038
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          645.9998400000001,
+          178.00048800000002
+        ],
+        [
+          678.9998400000001,
+          201.00036
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          687.99984,
+          241.99962
+        ],
+        [
+          720.99984,
+          260.999628
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          601.99968,
+          313.000476
+        ],
+        [
+          636.9993599999999,
+          330.000116
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "WechatIMG19700.jpg",
+  "imageData": null,
+  "imageHeight": 872,
+  "imageWidth": 960
+}

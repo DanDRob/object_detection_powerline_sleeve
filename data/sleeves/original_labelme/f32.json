@@ -1,0 +1,74 @@
+{
+  "version": "5.3.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "powerline",
+      "points": [
+        [
+          422.000082,
+          225.000345
+        ],
+        [
+          483.999948,
+          254.000217
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          218.00056949999998,
+          299.9999625
+        ],
+        [
+          283.0001805,
+          339.0001815
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          612.0004635,
+          522.000084
+        ],
+        [
+          667.0002824999999,
+          547.0000560000001
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          616.0002840000001,
+          298.99998750000003
+        ],
+        [
+          672.00066,
+          332.9997345
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "f32.png",
+  "imageData": null,
+  "imageHeight": 597,
+  "imageWidth": 963
+}

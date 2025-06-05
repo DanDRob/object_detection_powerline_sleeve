@@ -1,0 +1,7 @@
+
+path: /Users/danielroberts/Downloads/object_detection_powerline_sleeve/data/sleeves/sleeves_powerlines_yolo
+train: train/images
+val: val/images
+
+nc: 1
+names: ['sleeve']

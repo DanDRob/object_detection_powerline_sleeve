@@ -1,0 +1,122 @@
+{
+  "version": "5.3.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "powerline",
+      "points": [
+        [
+          173.9999,
+          88.000208
+        ],
+        [
+          203.00001999999998,
+          100.00004399999999
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          155.999916,
+          128.999824
+        ],
+        [
+          185.000036,
+          140.99966
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          241.00013199999998,
+          146.99984249999997
+        ],
+        [
+          281.00005999999996,
+          160.00001749999998
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          128.99994,
+          181.00025949999997
+        ],
+        [
+          160.999948,
+          190.0001365
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          203.00002,
+          193.0000955
+        ],
+        [
+          229.999996,
+          201.0001625
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          176.00020800000001,
+          241.00023299999998
+        ],
+        [
+          215.00006400000004,
+          253.000069
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          91.00015599999999,
+          290.999726
+        ],
+        [
+          118.000132,
+          300.99994200000003
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "WechatIMG18576.jpg",
+  "imageData": null,
+  "imageHeight": 529,
+  "imageWidth": 328
+}

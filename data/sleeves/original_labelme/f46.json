@@ -1,0 +1,42 @@
+{
+  "version": "5.3.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "powerline",
+      "points": [
+        [
+          643.0005375,
+          212.999974
+        ],
+        [
+          710.0002125,
+          255.999938
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          488.99974999999995,
+          178.99997199999999
+        ],
+        [
+          577.0002,
+          229.000052
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "f46.png",
+  "imageData": null,
+  "imageHeight": 524,
+  "imageWidth": 1175
+}

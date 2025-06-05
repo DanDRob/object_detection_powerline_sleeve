@@ -1,0 +1,26 @@
+{
+  "version": "5.3.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "powerline",
+      "points": [
+        [
+          542.999906,
+          216.99973500000002
+        ],
+        [
+          625.9997739999999,
+          279.000013
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "f36.png",
+  "imageData": null,
+  "imageHeight": 619,
+  "imageWidth": 1172
+}

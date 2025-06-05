@@ -1,0 +1,26 @@
+{
+  "version": "5.3.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "powerline",
+      "points": [
+        [
+          140.000301,
+          81.00027
+        ],
+        [
+          202.00049500000003,
+          115.00047
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "WechatIMG626.jpg",
+  "imageData": null,
+  "imageHeight": 1170,
+  "imageWidth": 1214
+}

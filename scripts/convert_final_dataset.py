@@ -16,16 +16,16 @@ logging.basicConfig(
 )
 
 # Define paths
-DATA_DIR = Path("data/powerlines")
-SOURCE_DIR = DATA_DIR / "final_dataset/images_labels"
-TARGET_DIR = DATA_DIR / "final_dataset_yolo"
+DATA_DIR = Path("data/sleeves")
+SOURCE_DIR = DATA_DIR / "sleeves_powerlines"
+TARGET_DIR = DATA_DIR / "sleeves_powerlines_yolo"
 
 # Splits
 TRAIN_SPLIT = 0.85
 VAL_SPLIT = 0.15
 
 # Class map
-CLASS_MAP = {"powerline": 0}
+CLASS_MAP = {"sleeve": 0}
 
 
 def clamp(value: float, min_val: float = 0.0, max_val: float = 1.0) -> float:

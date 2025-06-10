@@ -21,6 +21,7 @@ sampling:
   base_interval: 15.0 # meters
   max_extra_points: 5
 
+#NEED TO OPTIMIZE THIS
 camera:
   altitude: 2.5 # meters
   pitch_values: [15, 50]

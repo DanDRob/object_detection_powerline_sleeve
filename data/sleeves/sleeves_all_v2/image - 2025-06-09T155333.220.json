@@ -1,0 +1,226 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          476.0897435897436,
+          324.4871794871795
+        ],
+        [
+          525.4487179487179,
+          336.025641025641
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          481.85897435897436,
+          278.3333333333333
+        ],
+        [
+          524.8076923076923,
+          287.94871794871796
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          506.21794871794873,
+          178.33333333333337
+        ],
+        [
+          552.3717948717949,
+          188.58974358974362
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          241.47435897435895,
+          131.53846153846158
+        ],
+        [
+          311.98717948717945,
+          143.0769230769231
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          152.37179487179483,
+          209.10256410256412
+        ],
+        [
+          223.525641025641,
+          219.3589743589744
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          120.32051282051279,
+          261.6666666666667
+        ],
+        [
+          195.96153846153842,
+          273.84615384615387
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          231.21794871794867,
+          239.87179487179486
+        ],
+        [
+          292.1153846153846,
+          250.12820512820514
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          182.49999999999994,
+          337.3076923076923
+        ],
+        [
+          235.70512820512818,
+          346.9230769230769
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          87.62820512820508,
+          332.1794871794872
+        ],
+        [
+          159.42307692307688,
+          345.64102564102564
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          154.9358974358974,
+          410.38461538461536
+        ],
+        [
+          216.47435897435895,
+          420.64102564102564
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          135.0641025641025,
+          498.8461538461539
+        ],
+        [
+          173.525641025641,
+          508.46153846153845
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          208.7820512820512,
+          284.7435897435897
+        ],
+        [
+          261.98717948717945,
+          295.64102564102564
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image - 2025-06-09T155333.220.png",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

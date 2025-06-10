@@ -6,7 +6,7 @@ import numpy as np
 import shutil
 
 TARGET_SIZE = 640
-OUTPUT_DIR = Path('data/sleeves/final_dataset_640')
+OUTPUT_DIR = Path('data/sleeves/sleeves_v2')
 INPUT_DIR = Path('data/sleeves/original_labelme')
 
 
@@ -14,12 +14,12 @@ def get_enclosing_bbox(shapes: list) -> tuple:
     """Calculates the bounding box that encloses all label shapes."""
     if not shapes:
         return None
-    
+
     all_points = []
     for shape in shapes:
         if shape.get('shape_type') == 'rectangle':
             all_points.extend(shape['points'])
-    
+
     if not all_points:
         return None
 
@@ -28,7 +28,7 @@ def get_enclosing_bbox(shapes: list) -> tuple:
     min_y = np.min(all_points[:, 1])
     max_x = np.max(all_points[:, 0])
     max_y = np.max(all_points[:, 1])
-    
+
     return min_x, min_y, max_x, max_y
 
 
@@ -54,9 +54,9 @@ def process_and_save(json_path: Path):
 
     with Image.open(image_path) as img:
         original_width, original_height = img.size
-        
+
         bbox = get_enclosing_bbox(data['shapes'])
-        
+
         # --- 3. Handle Images Without Labels ---
         if bbox is None:
             # Center crop to a square and resize
@@ -68,8 +68,9 @@ def process_and_save(json_path: Path):
                 (original_height + side) / 2
             )
             cropped_img = img.crop(crop_box)
-            final_img = cropped_img.resize((TARGET_SIZE, TARGET_SIZE), Image.LANCZOS)
-            
+            final_img = cropped_img.resize(
+                (TARGET_SIZE, TARGET_SIZE), Image.LANCZOS)
+
             # No need to update coordinates
             data['shapes'] = []
 
@@ -78,26 +79,29 @@ def process_and_save(json_path: Path):
             min_x, min_y, max_x, max_y = bbox
             bbox_width = max_x - min_x
             bbox_height = max_y - min_y
-            
+
             # Scenario A: Smart 640x640 Crop
             if bbox_width <= TARGET_SIZE and bbox_height <= TARGET_SIZE:
                 center_x = min_x + bbox_width / 2
                 center_y = min_y + bbox_height / 2
-                
+
                 crop_x1 = center_x - TARGET_SIZE / 2
                 crop_y1 = center_y - TARGET_SIZE / 2
-                
+
                 # Prevent cropping outside the image
-                if crop_x1 < 0: crop_x1 = 0
-                if crop_y1 < 0: crop_y1 = 0
+                if crop_x1 < 0:
+                    crop_x1 = 0
+                if crop_y1 < 0:
+                    crop_y1 = 0
                 if crop_x1 + TARGET_SIZE > original_width:
                     crop_x1 = original_width - TARGET_SIZE
                 if crop_y1 + TARGET_SIZE > original_height:
                     crop_y1 = original_height - TARGET_SIZE
-                
-                crop_box = (crop_x1, crop_y1, crop_x1 + TARGET_SIZE, crop_y1 + TARGET_SIZE)
+
+                crop_box = (crop_x1, crop_y1, crop_x1 +
+                            TARGET_SIZE, crop_y1 + TARGET_SIZE)
                 final_img = img.crop(crop_box)
-                
+
                 # Update coordinates
                 for shape in data['shapes']:
                     points = np.array(shape['points'])
@@ -115,11 +119,12 @@ def process_and_save(json_path: Path):
 
                 crop_box = (crop_x1, crop_y1, crop_x2, crop_y2)
                 cropped_img = img.crop(crop_box)
-                
+
                 scale_x = TARGET_SIZE / cropped_img.width
                 scale_y = TARGET_SIZE / cropped_img.height
 
-                final_img = cropped_img.resize((TARGET_SIZE, TARGET_SIZE), Image.LANCZOS)
+                final_img = cropped_img.resize(
+                    (TARGET_SIZE, TARGET_SIZE), Image.LANCZOS)
 
                 # Update coordinates
                 for shape in data['shapes']:
@@ -151,19 +156,19 @@ def main():
         return
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    
+
     json_files = list(INPUT_DIR.glob('*.json'))
     if not json_files:
         print(f"No JSON files found in '{INPUT_DIR}'")
         return
 
     print(f"Found {len(json_files)} JSON files. Starting processing...")
-    
+
     for json_path in json_files:
         process_and_save(json_path)
-        
+
     print(f"\nProcessing complete. Output is in '{OUTPUT_DIR}'")
 
 
 if __name__ == '__main__':
-    main() 
+    main()

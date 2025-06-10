@@ -1,0 +1,28 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          457.6430391428572,
+          296.73224485714286
+        ],
+        [
+          584.0535714285713,
+          343.26775514285714
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "WechatIMG527.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

@@ -1,0 +1,82 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          201.4814814814815,
+          489.35185185185185
+        ],
+        [
+          234.35185185185185,
+          474.537037037037
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          145.462962962963,
+          595.8333333333333
+        ],
+        [
+          195.00000000000003,
+          572.6851851851851
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          382.962962962963,
+          443.98148148148147
+        ],
+        [
+          426.94444444444446,
+          420.3703703703703
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          387.5925925925926,
+          399.537037037037
+        ],
+        [
+          428.7962962962963,
+          379.16666666666663
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "pl_r011_p10_right_h297_p60_fov40.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

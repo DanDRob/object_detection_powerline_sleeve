@@ -1,0 +1,82 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          429.65665236051507,
+          11.50214592274681
+        ],
+        [
+          464.84978540772534,
+          20.085836909871272
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          385.87982832618025,
+          18.798283261802602
+        ],
+        [
+          419.35622317596574,
+          29.09871244635196
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          387.23684536952055,
+          92.61802575107299
+        ],
+        [
+          414.2921804063608,
+          101.04046242774564
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          175.15021459227472,
+          50.557939914163114
+        ],
+        [
+          209.48497854077254,
+          58.28326180257513
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "Screenshot 2025-06-09 155524.png",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

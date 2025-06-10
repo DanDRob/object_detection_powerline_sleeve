@@ -1,0 +1,118 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          51.120658741935586,
+          232.9032258064516
+        ],
+        [
+          157.716851935484,
+          277.61288322580646
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          344.66904583870985,
+          116.77419354838705
+        ],
+        [
+          448.1041347096775,
+          160.1613703225807
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          393.0561426129034,
+          186.9354838709677
+        ],
+        [
+          489.4273183548387,
+          228.41932483870966
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          151.92711035483887,
+          282.09677419354836
+        ],
+        [
+          245.49175848387108,
+          320.00044
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          257.57227164516144,
+          403.87096774193543
+        ],
+        [
+          338.49155148387104,
+          437.8068116129032
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          494.66904583870985,
+          315.96774193548384
+        ],
+        [
+          588.8793412580645,
+          350.00053999999994
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "WechatIMG630.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

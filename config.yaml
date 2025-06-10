@@ -3,7 +3,7 @@
 # Paths
 paths:
   data_dir: "data"
-  raw_images: "data/raw"
+  raw_images: "data/sleeves/additional_images"
   labeled_images: "data/labeled"
   processed_dataset: "data/processed"
   models_dir: "models"

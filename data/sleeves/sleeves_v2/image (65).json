@@ -1,0 +1,118 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          177.67857142857142,
+          337.52347445600753
+        ],
+        [
+          224.55357142857142,
+          329.48776017029326
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          377.23214285714283,
+          325.9163315988647
+        ],
+        [
+          420.08928571428567,
+          316.5413315988647
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          354.9107142857143,
+          379.0413315988647
+        ],
+        [
+          400.8928571428571,
+          371.0056173131504
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          152.67857142857142,
+          389.3091887417218
+        ],
+        [
+          193.74999999999997,
+          381.7199030274361
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          322.3112582781457,
+          263.2735927152318
+        ],
+        [
+          388.5364238410597,
+          250.69081125827813
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          132.0,
+          277.85085540838855
+        ],
+        [
+          172.0,
+          269.18418874172187
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image (65).png",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

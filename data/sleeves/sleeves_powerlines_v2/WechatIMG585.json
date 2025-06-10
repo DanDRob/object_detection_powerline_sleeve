@@ -1,0 +1,46 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          398.0346962222221,
+          183.08310233333333
+        ],
+        [
+          482.88216844444446,
+          209.69467544444439
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          157.11783155555548,
+          426.7776187777777
+        ],
+        [
+          254.40994622222212,
+          456.9168976666666
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "WechatIMG585.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

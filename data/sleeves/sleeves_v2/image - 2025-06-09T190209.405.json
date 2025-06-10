@@ -1,0 +1,118 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          380.6870229007634,
+          73.05343511450388
+        ],
+        [
+          331.8320610687023,
+          137.17557251908408
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          457.7862595419848,
+          21.908396946565006
+        ],
+        [
+          414.2748091603054,
+          75.34351145038175
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          575.3435114503817,
+          192.13740458015275
+        ],
+        [
+          525.7251908396947,
+          249.38931297709934
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          200.53435114503827,
+          399.00763358778636
+        ],
+        [
+          157.7862595419848,
+          461.6030534351146
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          99.00763358778636,
+          495.1908396946566
+        ],
+        [
+          64.65648854961839,
+          547.0992366412214
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          279.1603053435115,
+          573.8167938931299
+        ],
+        [
+          248.62595419847332,
+          618.0916030534352
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image - 2025-06-09T190209.405.png",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

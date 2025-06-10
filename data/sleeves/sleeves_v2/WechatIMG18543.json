@@ -1,0 +1,106 @@
+{
+  "version": "5.3.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          202.00000049999997,
+          72.999832
+        ],
+        [
+          244.00015949999997,
+          93.99970400000001
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          164.999978,
+          96.99977200000001
+        ],
+        [
+          206.00019200000003,
+          117.999644
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          138.0002285,
+          176.000254
+        ],
+        [
+          171.00005950000002,
+          194.000058
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          413.9998625,
+          135.00012999999998
+        ],
+        [
+          450.99947349999997,
+          152.999934
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          363.00019849999995,
+          152.000314
+        ],
+        [
+          405.0003575,
+          176.00025399999998
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          297.000125,
+          214.00031
+        ],
+        [
+          329.000011,
+          227.000202
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "WechatIMG18543.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

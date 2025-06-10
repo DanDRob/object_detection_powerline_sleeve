@@ -1,0 +1,82 @@
+{
+  "version": "5.8.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          484.4462081836158,
+          360.1749752429379
+        ],
+        [
+          518.4464621836158,
+          379.1751792429378
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          425.7059301892656,
+          355.999748
+        ],
+        [
+          457.70608618926553,
+          370.999844
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          209.01106993502827,
+          276.6948452542373
+        ],
+        [
+          256.01681465254245,
+          295.0169491525424
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          121.55353781638422,
+          457.728813559322
+        ],
+        [
+          163.8360476920904,
+          471.000278
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "f15.png",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

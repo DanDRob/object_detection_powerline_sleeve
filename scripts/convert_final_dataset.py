@@ -17,8 +17,8 @@ logging.basicConfig(
 
 # Define paths
 DATA_DIR = Path("data/sleeves")
-SOURCE_DIR = DATA_DIR / "sleeves_powerlines"
-TARGET_DIR = DATA_DIR / "sleeves_powerlines_yolo"
+SOURCE_DIR = DATA_DIR / "sleeves_v2"
+TARGET_DIR = DATA_DIR / "sleeves_only_v2_yolo"
 
 # Splits
 TRAIN_SPLIT = 0.85

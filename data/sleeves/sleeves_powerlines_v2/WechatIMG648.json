@@ -1,0 +1,28 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          186.93775933609956,
+          259.21991701244815
+        ],
+        [
+          250.07481679668047,
+          291.6595830373444
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "WechatIMG648.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

@@ -1,7 +1,5 @@
 nc: 1
 names:
-- powerline
-test: test/images
+  - powerline
 train: train/images
 val: val/images
-

@@ -273,4 +273,4 @@ def run_acquisition(config_path: str = CONFIG_PATH, route_id: Optional[str] = No
 
 if __name__ == "__main__":
     # adjust with ids you want to run
-    run_acquisition(route_id="018")
+    run_acquisition(route_id="015")

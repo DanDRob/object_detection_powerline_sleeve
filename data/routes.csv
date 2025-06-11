@@ -13,7 +13,7 @@ route_id,start_location,end_location,save_images,draw_detections,generate_map
 012,"6615 4A Township Rd, Puslinch, ON N1H 6J3","6649 Forestell Rd, Puslinch, ON N1H 6J3",true,true,true
 013,"6649 Forestell Rd, Puslinch, ON N1H 6J3","4687 10 Township Rd",true,true,true
 014,"770 Vaughan Rd, Toronto, ON","712 Vaughan Rd, Toronto, ON",true,true,true
-015,"702 Brealey Dr, Peterborough, ON","600 Brealey Dr, Peterborough, ON",true,true,true
+015,"702 Brealey Dr, Peterborough, ON","690 Brealey Dr, Peterborough, ON",true,true,true
 016,"1840 Lansdowne St W, Peterborough, ON","1857 Lansdowne St W, Peterborough, ON",true,true,true
 017,"1875 Lansdowne St W, Peterborough, ON","1890 Lansdowne St W, Peterborough, ON",true,true,true
 018,"1986 County Rd 513, Peterborough, ON","2005 County Rd 513, Peterborough, ON",true,true,true

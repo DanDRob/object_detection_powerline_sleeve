@@ -42,7 +42,7 @@ def get_image_dimensions(image_path: Path) -> tuple[int, int]:
 
 
 def main():
-    test_dir = Path("data/sleeves/test")
+    test_dir = Path("data/sleeves/sleeves_powerlines_v2")
 
     if not test_dir.exists():
         logging.error(f"Directory {test_dir} does not exist")

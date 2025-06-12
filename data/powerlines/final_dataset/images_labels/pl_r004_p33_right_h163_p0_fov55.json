@@ -1,5 +1,5 @@
 {
-  "version": "5.8.1",
+  "version": "5.6.1",
   "flags": {},
   "shapes": [
     {
@@ -66,6 +66,24 @@
         [
           278.92857142857144,
           155.71428571428575
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          343.910411622276,
+          169.429263230716
+        ],
+        [
+          498.3163265306123,
+          183.77551020408168
         ]
       ],
       "group_id": null,

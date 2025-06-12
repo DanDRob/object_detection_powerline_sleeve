@@ -37,6 +37,24 @@
       "shape_type": "rectangle",
       "flags": {},
       "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          332.43386243386243,
+          485.07936507936506
+        ],
+        [
+          363.1216931216931,
+          469.7354497354497
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
     }
   ],
   "imagePath": "pl_r020_p1_left_h300_p50_fov40.jpg",

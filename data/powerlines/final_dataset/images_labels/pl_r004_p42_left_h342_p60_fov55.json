@@ -1,5 +1,5 @@
 {
-  "version": "5.8.1",
+  "version": "5.6.1",
   "flags": {},
   "shapes": [
     {
@@ -48,6 +48,42 @@
         [
           263.1122448979592,
           576.1224489795918
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          385.56122448979596,
+          585.8163265306123
+        ],
+        [
+          493.2142857142858,
+          552.6530612244898
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "powerline",
+      "points": [
+        [
+          582.5,
+          581.2244897959183
+        ],
+        [
+          640.0,
+          549.0816326530612
         ]
       ],
       "group_id": null,

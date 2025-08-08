@@ -96,7 +96,8 @@ runs/
 output/
 results/
 data/cache/
-
+data/powerlines/powerlines_yolo.zip
 # Temporary files
 tmp/
 temp/
+<path/to/largefile>

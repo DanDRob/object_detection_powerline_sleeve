@@ -1,6 +1,6 @@
 # Powerline Sleeve Detection
 
-This project detects powerline sleeves from Google Street View images using YOLOv8.
+This project detects powerline sleeves from Google Street View images using YOLOv12.
 
 ## Project Structure
 
@@ -13,12 +13,13 @@ This project detects powerline sleeves from Google Street View images using YOLO
 ├── requirements.txt           # Python dependencies
 ├── data/
 │   ├── routes.csv             # CSV file defining routes for acquisition
+│   ├── powerlines/             # Powerline images
+│   ├── sleeves/                # Sleeve images
 │   ├── raw/                   # Raw images downloaded by acquisition
-│   ├── labeled/               # Manually labeled images
-│   └── processed/             # Processed datasets (train/val/test splits)
+|   ├── tests/                 # Test images
 ├── models/                    # Trained models
 ├── results/                   # Detection results
-├── scripts/                   # Support functions for dataset validation & conversions
+├── scripts/                   # Support functions for dataset val. & conv. (to be removed)
 └── src/
     ├── __init__.py
     ├── acquisition/           # Image acquisition from Street View
@@ -43,7 +44,7 @@ This project detects powerline sleeves from Google Street View images using YOLO
 1.  **Acquisition**: Fetch images from Google Street View based on routes defined in `data/routes.csv`.
 2.  **Labeling**: Tools for manual and automated labeling of images.
 3.  **Dataset**: Prepare datasets for training (splitting, augmentation).
-4.  **Training**: Train YOLOv8 models for powerline and sleeve detection.
+4.  **Training**: Train YOLOv12 models for powerline and sleeve detection.
 5.  **Detection**: Run inference on new images.
 6.  **Visualization**: Visualize detection results.
 
@@ -89,7 +90,7 @@ See `requirements.txt`. Key dependencies include:
 
 - Python 3.8+
 - PyTorch
-- Ultralytics YOLOv8
+- Ultralytics YOLOv12
 - OpenCV-Python
 - Pandas
 - Requests

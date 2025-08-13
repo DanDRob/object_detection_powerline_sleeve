@@ -97,6 +97,12 @@ output/
 results/
 data/cache/
 data/powerlines/powerlines_yolo.zip
+scripts/build_thesis_docx.py
+Thesis-Template_Aug.2019.docx
+thesis_draft.md
+thesis_draft_filled.docx
+Thesis_Draft_Merged.docx
+
 # Temporary files
 tmp/
 temp/

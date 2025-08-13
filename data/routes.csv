@@ -19,3 +19,7 @@ route_id,start_location,end_location,save_images,draw_detections,generate_map
 018,"1986 County Rd 513, Peterborough, ON","2005 County Rd 513, Peterborough, ON",true,true,true
 019,"1495 Lansdowne St W, Peterborough, ON","1495 Lansdowne St W, Peterborough, ON",true,true,true
 020,"1477 Lansdowne St W, Peterborough, ON","1400 Lansdowne St W, Peterborough, ON",true,true,true
+021,"183 Burnhamthorpe Rd, Toronto, ON","183 Burnhamthorpe Rd, Toronto, ON",true,true,true
+022, "4915 Dundas St W, Toronto, ON","4915 Dundas St W, Toronto, ON",true,true,true
+023, "203 Burnhamthorpe Rd, Toronto, ON"," 430 Burnhamthorpe Rd, Toronto, ON",true,true,true
+024, "583 Burnhamthorpe Rd, Toronto, ON","2096 Burnhamthorpe Rd E, Toronto, ON",true,true,true

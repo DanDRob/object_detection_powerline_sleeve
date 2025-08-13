@@ -6,8 +6,8 @@ import numpy as np
 import shutil
 
 TARGET_SIZE = 640
-OUTPUT_DIR = Path('data/sleeves/sleeves_v2')
-INPUT_DIR = Path('data/sleeves/original_labelme')
+OUTPUT_DIR = Path('data/sleeves/add_train_sleeves_640')
+INPUT_DIR = Path('data/sleeves/add_train_sleeves')
 
 
 def get_enclosing_bbox(shapes: list) -> tuple:
@@ -149,6 +149,35 @@ def process_and_save(json_path: Path):
             json.dump(data, f, indent=2)
 
 
+def process_image_only(image_path: Path):
+    """Center-crops an image to a square and resizes to TARGET_SIZE, then saves it.
+
+    This is used when no corresponding LabelMe JSON exists.
+    """
+    try:
+        with Image.open(image_path) as img:
+            original_width, original_height = img.size
+
+            # Center crop to square
+            side = min(original_width, original_height)
+            crop_box = (
+                (original_width - side) / 2,
+                (original_height - side) / 2,
+                (original_width + side) / 2,
+                (original_height + side) / 2
+            )
+            cropped_img = img.crop(crop_box)
+            final_img = cropped_img.resize(
+                (TARGET_SIZE, TARGET_SIZE), Image.LANCZOS)
+
+            output_image_path = OUTPUT_DIR / image_path.name
+            final_img.convert("RGB").save(output_image_path)
+    except FileNotFoundError:
+        print(f"Warning: Image not found '{image_path}', skipping.")
+    except OSError as e:
+        print(f"Error processing image '{image_path}': {e}")
+
+
 def main():
     """Main function to run the processing script."""
     if not INPUT_DIR.exists():
@@ -158,14 +187,32 @@ def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     json_files = list(INPUT_DIR.glob('*.json'))
-    if not json_files:
-        print(f"No JSON files found in '{INPUT_DIR}'")
-        return
 
-    print(f"Found {len(json_files)} JSON files. Starting processing...")
+    # Gather images in the input directory
+    image_extensions = {'.jpg', '.jpeg', '.png',
+                        '.bmp', '.tif', '.tiff', '.webp'}
+    image_files = [
+        p for p in INPUT_DIR.iterdir()
+        if p.is_file() and p.suffix.lower() in image_extensions
+    ]
 
+    if json_files:
+        print(
+            f"Found {len(json_files)} JSON files. Starting labeled processing...")
+    else:
+        print(f"No JSON files found in '{INPUT_DIR}'. Resizing images only...")
+
+    # Process labeled images first
     for json_path in json_files:
         process_and_save(json_path)
+
+    # Process images without JSON
+    json_stems = {p.stem for p in json_files}
+    unlabeled_images = [p for p in image_files if p.stem not in json_stems]
+    if unlabeled_images:
+        print(f"Processing {len(unlabeled_images)} images without JSON...")
+        for image_path in unlabeled_images:
+            process_image_only(image_path)
 
     print(f"\nProcessing complete. Output is in '{OUTPUT_DIR}'")
 

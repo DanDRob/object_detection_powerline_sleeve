@@ -1,4 +1,4 @@
-021 - moved from this point to point 022 - this region will be used solely for my validation set. The overlapping of images between validation and train set seems to have caused overfitting, thus instead of only the test set being a completely unseen route, I will make the validation set be the same. Moved to trainset already enough val 
+021 - moved from this point to point 022 - this region will be used solely for my validation set. The overlapping of images between validation and train set seems to have caused overfitting, thus instead of only the test set being a completely unseen route, I will make the validation set be the same. Moved to train-set already enough val 
 022 - val as well
 023 - val as well - going opposite direction from 021 to 022, went to end of road where powerlines stop
 024 - val - skipped from 023 where major powerlines (towers) start again

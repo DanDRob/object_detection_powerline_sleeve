@@ -1,0 +1,28 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          110.56122448979593,
+          81.73469387755104
+        ],
+        [
+          89.13265306122452,
+          87.34693877551022
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "231_lat45.332905_lon-79.225515_hdg60_pitch0_fov60.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

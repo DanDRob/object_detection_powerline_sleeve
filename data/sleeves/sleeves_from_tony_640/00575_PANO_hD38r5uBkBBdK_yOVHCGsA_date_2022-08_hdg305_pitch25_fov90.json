@@ -1,0 +1,118 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          18.282442748091636,
+          76.67938931297712
+        ],
+        [
+          59.88549618320614,
+          104.92366412213744
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          185.07633587786265,
+          87.36641221374049
+        ],
+        [
+          208.35877862595424,
+          109.12213740458017
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          169.88235294117646,
+          17.176470588235293
+        ],
+        [
+          194.8235294117647,
+          43.05882352941177
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          210.11764705882354,
+          9.647058823529411
+        ],
+        [
+          230.11764705882354,
+          32.23529411764706
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          218.11764705882354,
+          2.588235294117647
+        ],
+        [
+          243.2941176470588,
+          34.8235294117647
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          263.05882352941177,
+          12.941176470588236
+        ],
+        [
+          253.88235294117646,
+          0.23529411764705882
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "00575_PANO_hD38r5uBkBBdK_yOVHCGsA_date_2022-08_hdg305_pitch25_fov90.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

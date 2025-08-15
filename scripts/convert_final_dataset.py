@@ -17,12 +17,12 @@ logging.basicConfig(
 
 # Define paths
 DATA_DIR = Path("data/sleeves")
-SOURCE_DIR = DATA_DIR / "sleeves_v4"
-TARGET_DIR = DATA_DIR / "sleeves_v4_yolo_90_10"
+SOURCE_DIR = DATA_DIR / "sleeves_from_tony_640"
+TARGET_DIR = DATA_DIR / "sleeves_from_tony_640_yolo"
 
 # Splits
-TRAIN_SPLIT = 0.90
-VAL_SPLIT = 0.10
+TRAIN_SPLIT = 1.0
+VAL_SPLIT = 0.0
 
 # Class map
 CLASS_MAP = {"sleeve": 0}
@@ -120,8 +120,10 @@ def process_file(json_file: Path, images_dir: Path, labels_dir: Path, class_map:
         with open(json_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
         # Try common image extensions for the same stem
-        candidates = [json_file.with_suffix(ext) for ext in ('.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG')]
-        image_path = next((p for p in candidates if p.exists()), json_file.with_suffix('.jpg'))
+        candidates = [json_file.with_suffix(ext) for ext in (
+            '.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG')]
+        image_path = next((p for p in candidates if p.exists()),
+                          json_file.with_suffix('.jpg'))
         img_width = data.get("imageWidth", 640)
         img_height = data.get("imageHeight", 640)
         if not image_path.exists():

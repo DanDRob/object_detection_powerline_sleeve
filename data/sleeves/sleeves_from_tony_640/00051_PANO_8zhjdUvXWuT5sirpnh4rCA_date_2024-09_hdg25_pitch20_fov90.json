@@ -1,0 +1,64 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          206.98979591836735,
+          59.285714285714306
+        ],
+        [
+          228.4183673469388,
+          67.44897959183676
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          211.58163265306126,
+          96.02040816326533
+        ],
+        [
+          230.96938775510205,
+          102.65306122448982
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          219.74489795918367,
+          138.36734693877554
+        ],
+        [
+          239.13265306122452,
+          143.97959183673473
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "00051_PANO_8zhjdUvXWuT5sirpnh4rCA_date_2024-09_hdg25_pitch20_fov90.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

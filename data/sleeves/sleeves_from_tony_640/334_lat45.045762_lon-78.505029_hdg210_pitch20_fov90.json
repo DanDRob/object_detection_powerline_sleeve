@@ -1,0 +1,226 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          256.98979591836735,
+          5.204081632653085
+        ],
+        [
+          242.70408163265307,
+          23.571428571428594
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          254.4387755102041,
+          50.61224489795921
+        ],
+        [
+          237.60204081632656,
+          68.46938775510206
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          302.90816326530614,
+          57.75510204081635
+        ],
+        [
+          289.64285714285717,
+          72.55102040816328
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          241.17346938775512,
+          102.14285714285717
+        ],
+        [
+          226.88775510204084,
+          116.93877551020411
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          185.0510204081633,
+          130.2040816326531
+        ],
+        [
+          173.8265306122449,
+          141.42857142857147
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          290.1530612244898,
+          113.36734693877554
+        ],
+        [
+          273.82653061224494,
+          128.1632653061225
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          306.4795918367347,
+          140.91836734693882
+        ],
+        [
+          287.0918367346939,
+          156.2244897959184
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          235.0510204081633,
+          194.48979591836738
+        ],
+        [
+          224.84693877551024,
+          202.1428571428572
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          228.92857142857144,
+          264.8979591836735
+        ],
+        [
+          213.62244897959187,
+          276.12244897959187
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          179.94897959183675,
+          166.42857142857147
+        ],
+        [
+          167.19387755102042,
+          177.1428571428572
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          239.64285714285717,
+          123.5714285714286
+        ],
+        [
+          228.4183673469388,
+          135.8163265306123
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          239.13265306122452,
+          159.79591836734699
+        ],
+        [
+          225.86734693877554,
+          170.51020408163268
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "334_lat45.045762_lon-78.505029_hdg210_pitch20_fov90.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

@@ -1,0 +1,136 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          199.84693877551024,
+          28.673469387755123
+        ],
+        [
+          231.98979591836735,
+          46.02040816326533
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          266.68367346938777,
+          63.36734693877553
+        ],
+        [
+          295.76530612244903,
+          79.69387755102044
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          297.80612244897964,
+          80.20408163265309
+        ],
+        [
+          323.3163265306123,
+          95.00000000000003
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          185.0510204081633,
+          59.285714285714306
+        ],
+        [
+          214.64285714285717,
+          75.6122448979592
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          261.58163265306126,
+          97.04081632653063
+        ],
+        [
+          293.2142857142857,
+          112.34693877551022
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          331.98979591836735,
+          20.00000000000002
+        ],
+        [
+          358.52040816326536,
+          38.36734693877553
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          356.4795918367347,
+          245.5102040816327
+        ],
+        [
+          384.030612244898,
+          256.7346938775511
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "00484_PANO_ytB69CFi15ak7eeaouvJnw_date_2018-09_hdg265_pitch25_fov60.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

@@ -1,0 +1,28 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          215.9183673469388,
+          292.9591836734694
+        ],
+        [
+          424.0816326530612,
+          347.0408163265306
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image - 2025-08-14T234744.249.png",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

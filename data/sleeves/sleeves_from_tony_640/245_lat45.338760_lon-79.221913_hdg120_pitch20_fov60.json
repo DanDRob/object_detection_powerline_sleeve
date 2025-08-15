@@ -1,0 +1,100 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          580.8996539792388,
+          87.12802768166091
+        ],
+        [
+          564.636678200692,
+          105.81314878892735
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          628.3044982698963,
+          82.62975778546715
+        ],
+        [
+          611.0034602076125,
+          100.9688581314879
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          470.51903114186854,
+          151.8339100346021
+        ],
+        [
+          481.59169550173016,
+          160.48442906574397
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          488.51211072664364,
+          170.17301038062286
+        ],
+        [
+          500.27681660899657,
+          179.51557093425606
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          454.9480968858132,
+          187.4740484429066
+        ],
+        [
+          467.75086505190313,
+          196.47058823529414
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "245_lat45.338760_lon-79.221913_hdg120_pitch20_fov60.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

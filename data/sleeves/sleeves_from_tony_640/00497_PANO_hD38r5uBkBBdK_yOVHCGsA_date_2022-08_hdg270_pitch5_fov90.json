@@ -1,0 +1,28 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          191.6836734693878,
+          24.081632653061245
+        ],
+        [
+          226.37755102040816,
+          35.816326530612265
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "00497_PANO_hD38r5uBkBBdK_yOVHCGsA_date_2022-08_hdg270_pitch5_fov90.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

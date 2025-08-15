@@ -1,0 +1,100 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          499.3367346938776,
+          33.265306122449005
+        ],
+        [
+          469.2346938775511,
+          42.44897959183676
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          561.5816326530612,
+          15.408163265306147
+        ],
+        [
+          531.4795918367347,
+          25.612244897959204
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          595.2551020408164,
+          6.734693877551044
+        ],
+        [
+          568.2142857142858,
+          15.408163265306147
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          495.76530612244903,
+          63.36734693877553
+        ],
+        [
+          467.70408163265313,
+          72.55102040816328
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          566.1734693877552,
+          43.97959183673472
+        ],
+        [
+          537.6020408163265,
+          53.67346938775513
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "00409_PANO_ytB69CFi15ak7eeaouvJnw_date_2018-09_hdg215_pitch15_fov90.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

@@ -1,147 +1,169 @@
-
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Powerline Sleeve Detection Project Guide</title>
-        <style>
-            body { 
-                font-family: Arial, sans-serif; 
-                margin: 40px; 
-                line-height: 1.6;
-                color: #333;
-                max-width: 900px;
-                margin: 0 auto;
-                padding: 20px;
-            }
-            code { 
-                background-color: #f5f5f5; 
-                padding: 2px 5px; 
-                border-radius: 3px;
-                font-family: Consolas, Monaco, 'Andale Mono', monospace;
-                font-size: 90%;
-            }
-            pre { 
-                background-color: #f5f5f5; 
-                padding: 15px; 
-                border-radius: 5px; 
-                overflow-x: auto;
-                border: 1px solid #ddd;
-            }
-            h1 { 
-                color: #2c3e50; 
-                border-bottom: 2px solid #3498db;
-                padding-bottom: 10px;
-            }
-            h2 { 
-                color: #34495e; 
-                border-bottom: 1px solid #eee; 
-                padding-bottom: 5px;
-                margin-top: 30px;
-            }
-            h3 { 
-                color: #34495e; 
-                margin-top: 25px;
-            }
-            table { 
-                border-collapse: collapse; 
-                width: 100%; 
-                margin: 20px 0;
-                border: 1px solid #ddd;
-            }
-            th, td { 
-                border: 1px solid #ddd; 
-                padding: 8px; 
-                text-align: left;
-            }
-            th { 
-                background-color: #f5f5f5; 
-            }
-            a {
-                color: #3498db;
-                text-decoration: none;
-            }
-            a:hover {
-                text-decoration: underline;
-            }
-            .page-break {
-                page-break-after: always;
-            }
-            ul, ol {
-                padding-left: 25px;
-            }
-            @media print {
-                body {
-                    margin: 0;
-                    padding: 0;
-                }
-                pre, code {
-                    white-space: pre-wrap;
-                }
-                a[href]:after {
-                    content: " (" attr(href) ")";
-                    font-size: 90%;
-                    color: #666;
-                }
-                .no-print, .no-print * {
-                    display: none !important;
-                }
-                h1, h2, h3, h4, h5, h6 {
-                    page-break-after: avoid;
-                }
-                table, figure {
-                    page-break-inside: avoid;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <h1 id="powerline-sleeve-detection-project-guide">Powerline Sleeve Detection Project Guide</h1>
-<h2 id="data-collection-pipeline-documentation">Data Collection Pipeline Documentation</h2>
-<h3 id="table-of-contents">Table of Contents</h3>
-<ol>
-<li><a href="#project-overview">Project Overview</a></li>
-<li><a href="#system-requirements">System Requirements</a></li>
-<li><a href="#project-structure">Project Structure</a></li>
-<li><a href="#data-collection-pipeline">Data Collection Pipeline</a></li>
-<li><a href="#configuration-guide">Configuration Guide</a></li>
-<li><a href="#step-by-step-guide">Step-by-Step Guide</a></li>
-<li><a href="#step-by-step-process">Step by Step Process</a></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
-</ol>
-<h2 id="1-project-overview">1. Project Overview</h2>
-<p>This project aims to detect powerline sleeves using computer vision techniques. The data collection pipeline is designed to systematically gather street-level images of powerlines using the Google Street View API. The system follows these main steps:</p>
-<ol>
-<li>Route Planning</li>
-<li>Image Acquisition</li>
-<li>Data Organization</li>
-<li>Image Processing</li>
-<li>Dataset Preparation</li>
-</ol>
-<h2 id="2-system-requirements">2. System Requirements</h2>
-<h3 id="software-dependencies">Software Dependencies</h3>
-<ul>
-<li>Python 3.x</li>
-<li>Required Python packages (install via <code>pip install -r requirements.txt</code>):</li>
-<li>requests</li>
-<li>PyYAML</li>
-<li>polyline</li>
-<li>geopy</li>
-<li>pyproj</li>
-<li>pandas</li>
-<li>Pillow</li>
-<li>ultralytics (for YOLOv8)</li>
-</ul>
-<h3 id="api-requirements">API Requirements</h3>
-<ul>
-<li>Google Cloud Platform account</li>
-<li>Enabled APIs:</li>
-<li>Google Street View Static API</li>
-<li>Google Directions API</li>
-<li>Valid API key with billing enabled</li>
-</ul>
-<h2 id="3-project-structure">3. Project Structure</h2>
-<div class="codehilite"><pre><span></span><code>object_detection_powerline_sleeve/
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Powerline Sleeve Detection Project Guide</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        line-height: 1.6;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      code {
+        background-color: #f5f5f5;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: Consolas, Monaco, "Andale Mono", monospace;
+        font-size: 90%;
+      }
+      pre {
+        background-color: #f5f5f5;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        border: 1px solid #ddd;
+      }
+      h1 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+      h2 {
+        color: #34495e;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+        margin-top: 30px;
+      }
+      h3 {
+        color: #34495e;
+        margin-top: 25px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+        border: 1px solid #ddd;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f5f5f5;
+      }
+      a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .page-break {
+        page-break-after: always;
+      }
+      ul,
+      ol {
+        padding-left: 25px;
+      }
+      @media print {
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        pre,
+        code {
+          white-space: pre-wrap;
+        }
+        a[href]:after {
+          content: " (" attr(href) ")";
+          font-size: 90%;
+          color: #666;
+        }
+        .no-print,
+        .no-print * {
+          display: none !important;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          page-break-after: avoid;
+        }
+        table,
+        figure {
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="powerline-sleeve-detection-project-guide">
+      Powerline Sleeve Detection Project Guide
+    </h1>
+    <h2 id="data-collection-pipeline-documentation">
+      Data Collection Pipeline Documentation
+    </h2>
+    <h3 id="table-of-contents">Table of Contents</h3>
+    <ol>
+      <li><a href="#project-overview">Project Overview</a></li>
+      <li><a href="#system-requirements">System Requirements</a></li>
+      <li><a href="#project-structure">Project Structure</a></li>
+      <li><a href="#data-collection-pipeline">Data Collection Pipeline</a></li>
+      <li><a href="#configuration-guide">Configuration Guide</a></li>
+      <li><a href="#step-by-step-guide">Step-by-Step Guide</a></li>
+      <li><a href="#step-by-step-process">Step by Step Process</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+    </ol>
+    <h2 id="1-project-overview">1. Project Overview</h2>
+    <p>
+      This project aims to detect powerline sleeves using computer vision
+      techniques. The data collection pipeline is designed to systematically
+      gather street-level images of powerlines using the Google Street View API.
+      The system follows these main steps:
+    </p>
+    <ol>
+      <li>Route Planning</li>
+      <li>Image Acquisition</li>
+      <li>Data Organization</li>
+      <li>Image Processing</li>
+      <li>Dataset Preparation</li>
+    </ol>
+    <h2 id="2-system-requirements">2. System Requirements</h2>
+    <h3 id="software-dependencies">Software Dependencies</h3>
+    <ul>
+      <li>Python 3.x</li>
+      <li>
+        Required Python packages (install via
+        <code>pip install -r requirements.txt</code>):
+      </li>
+      <li>requests</li>
+      <li>PyYAML</li>
+      <li>polyline</li>
+      <li>geopy</li>
+      <li>pyproj</li>
+      <li>pandas</li>
+      <li>Pillow</li>
+      <li>ultralytics (for YOLOv8)</li>
+    </ul>
+    <h3 id="api-requirements">API Requirements</h3>
+    <ul>
+      <li>Google Cloud Platform account</li>
+      <li>Enabled APIs:</li>
+      <li>Google Street View Static API</li>
+      <li>Google Directions API</li>
+      <li>Valid API key with billing enabled</li>
+    </ul>
+    <h2 id="3-project-structure">3. Project Structure</h2>
+    <div class="codehilite">
+      <pre><span></span><code>object_detection_powerline_sleeve/
 ├── data/
 │   ├── cache/              # Cached Street View images
 │   ├── powerlines/         # Organized dataset
@@ -158,522 +180,917 @@
 │   ├── labeling/         # Image labeling
 │   └── training/         # Model training
 └── config.yaml           # Configuration file
-</code></pre></div>
+</code></pre>
+    </div>
 
-<h2 id="4-data-collection-pipeline">4. Data Collection Pipeline</h2>
-<h3 id="41-route-planning-route_processorpy">4.1 Route Planning (<code>route_processor.py</code>)</h3>
-<ul>
-<li><strong>Purpose</strong>: Plans routes for image collection</li>
-<li><strong>Key Features</strong>:</li>
-<li>Fetches route coordinates from Google Directions API</li>
-<li>Interpolates points along route at specified intervals</li>
-<li>Calculates road bearings and powerline offsets</li>
-<li>Supports both left and right side powerline detection</li>
-</ul>
-<h4 id="411-technical-implementation-details">4.1.1 Technical Implementation Details</h4>
-<ul>
-<li><strong>RoutePlanner Class</strong>: The central component that handles all route planning operations</li>
-<li><strong>Initialization</strong>: Takes configuration parameters from <code>config.yaml</code> such as API key, base interval, powerline offset, and powerline side (left, right, or both)</li>
-<li><strong>Google Directions API Integration</strong>: Uses the API to fetch detailed polylines for routes between specified start and end locations
-    <code>python
-    # Example API request
-    base_url = "https://maps.googleapis.com/maps/api/directions/json"
-    params = {
-        'origin': start_location,
-        'destination': end_location,
-        'key': self.api_key,
-    }</code></li>
-<li>
-<p><strong>Polyline Decoding</strong>: Processes encoded polylines from the API response using the <code>polyline</code> library to extract coordinate sequences
-    <code>python
-    # Decoding polylines to coordinates
-    points_str = step['polyline']['points']
-    decoded_points = polyline.decode(points_str)</code></p>
-</li>
-<li>
-<p><strong>Route Interpolation</strong>: Ensures consistent sampling of points along the route</p>
-</li>
-<li><strong>Adaptive Algorithm</strong>: Interpolates points at the specified interval (default 20 meters) to create evenly spaced points along the route</li>
-<li><strong>Geodetic Calculations</strong>: Uses <code>geopy.distance</code> and <code>pyproj.Geod</code> for accurate distance and bearing calculations on the Earth's surface</li>
-<li>
-<p><strong>Point Generation</strong>: Creates new coordinate points that maintain the exact specified interval
-    <code>python
-    # Interpolation example
-    intermediate_point = geopy.distance.distance(
-        meters=needed_distance).destination(p1, segment_bearing)</code></p>
-</li>
-<li>
-<p><strong>Bearing Calculation</strong>: Determines road direction at each point</p>
-</li>
-<li><strong>Geodetic Azimuth</strong>: Calculates true bearing using pyproj's geodetic functions rather than simple Euclidean calculations</li>
-<li><strong>Forward Looking</strong>: Computes bearing based on the direction to the next point</li>
-<li>
-<p><strong>Normalization</strong>: Ensures bearings are within 0-360 degrees</p>
-</li>
-<li>
-<p><strong>Powerline Point Generation</strong>: Calculates potential powerline locations based on road positions</p>
-</li>
-<li><strong>Offset Calculation</strong>: Uses perpendicular offsets from the road (default 10 meters) to estimate powerline locations</li>
-<li><strong>Side Selection</strong>: Supports left side, right side, or both sides of the road</li>
-<li><strong>GeoSpatial Transformation</strong>: Uses Geod.fwd method to calculate offset coordinates
-    <code>python
-    # Calculate offset point (lon, lat is reversed in pyproj)
-    lon_pl, lat_pl, _ = self.geod.fwd(
-        lon, lat, powerline_bearing, self.powerline_offset)</code></li>
-</ul>
-<h4 id="412-error-handling-and-robustness">4.1.2 Error Handling and Robustness</h4>
-<ul>
-<li><strong>API Error Recovery</strong>: Implements exponential backoff with retries for API failures</li>
-<li><strong>Input Validation</strong>: Checks for valid configuration and API responses</li>
-<li><strong>Edge Cases</strong>: Handles special cases like identical consecutive points and insufficient points</li>
-</ul>
-<h4 id="413-output-format">4.1.3 Output Format</h4>
-<p>The <code>plan_route</code> method returns a dictionary containing:
-- <code>route_points</code>: List of (latitude, longitude) tuples for the interpolated route
-- <code>route_bearings</code>: List of bearings in degrees for each route point
-- <code>powerline_points_left</code>: List of potential powerline locations on the left side
-- <code>powerline_points_right</code>: List of potential powerline locations on the right side</p>
-<h3 id="42-image-acquisition-streetview_clientpy">4.2 Image Acquisition (<code>streetview_client.py</code>)</h3>
-<ul>
-<li><strong>Purpose</strong>: Manages Street View image collection</li>
-<li><strong>Key Features</strong>:</li>
-<li>Handles API requests with rate limiting</li>
-<li>Implements exponential backoff for failed requests</li>
-<li>Caches images to reduce API costs</li>
-<li>Supports multiple camera angles and pitches</li>
-</ul>
-<h4 id="421-technical-implementation-details">4.2.1 Technical Implementation Details</h4>
-<ul>
-<li><strong>StreetViewClient Class</strong>: Core component responsible for fetching images</li>
-<li><strong>Initialization</strong>: Configures with API key, request intervals, retry parameters, and image dimensions from <code>config.yaml</code></li>
-<li>
-<p><strong>Cache Integration</strong>: Connects with <code>CacheManager</code> to optimize API usage</p>
-</li>
-<li>
-<p><strong>API Request Construction</strong>:</p>
-</li>
-<li><strong>URL Formation</strong>: Builds Google Street View Static API URLs with precise parameters
-    <code>python
-    base_url = "https://maps.googleapis.com/maps/api/streetview"
-    params = {
-        'size': f"{self.image_width}x{self.image_height}",
-        'location': f"{lat},{lon}",
-        'heading': heading,
-        'pitch': pitch,
-        'fov': fov,
-        'key': self.api_key
-    }</code></li>
-<li>
-<p><strong>Parameter Validation</strong>: Ensures all required parameters are within valid ranges</p>
-</li>
-<li>
-<p><strong>Rate Limiting Implementation</strong>:</p>
-</li>
-<li><strong>Time-based Throttling</strong>: Enforces minimum wait times between requests (configurable, default 0.1 seconds)</li>
-<li><strong>Last Request Tracking</strong>: Maintains timestamp of most recent request to calculate appropriate wait time</li>
-<li>
-<p><strong>Adaptive Delays</strong>: Dynamically adjusts wait times based on API response codes</p>
-</li>
-<li>
-<p><strong>Exponential Backoff for Failures</strong>:</p>
-</li>
-<li><strong>Progressive Retry Logic</strong>: Increases wait time exponentially after failed requests</li>
-<li><strong>Maximum Retry Configuration</strong>: Limits retry attempts based on configuration</li>
-<li>
-<p><strong>Error Classification</strong>: Different handling for server errors (5xx), client errors (4xx), and network issues</p>
-</li>
-<li>
-<p><strong>Response Handling</strong>:</p>
-</li>
-<li><strong>Status Validation</strong>: Checks HTTP status codes and handles different error scenarios</li>
-<li><strong>Binary Data Processing</strong>: Processes image binary data from responses</li>
-<li><strong>Metadata Extraction</strong>: Captures relevant headers and metadata from the API response</li>
-</ul>
-<h4 id="422-image-retrieval-and-storage">4.2.2 Image Retrieval and Storage</h4>
-<ul>
-<li><strong>Cache-First Strategy</strong>:</li>
-<li><strong>Check Cache</strong>: Verifies if requested image exists in cache before making API call</li>
-<li><strong>Cache Key Generation</strong>: Creates unique keys based on location and camera parameters</li>
-<li>
-<p><strong>Update Cache</strong>: Stores newly fetched images in cache with proper metadata</p>
-</li>
-<li>
-<p><strong>Direct Image Saving</strong>:</p>
-</li>
-<li><strong>Path Construction</strong>: Creates appropriate file paths based on route ID and camera parameters</li>
-<li><strong>Directory Creation</strong>: Ensures target directories exist before saving</li>
-<li><strong>Image Format</strong>: Saves images as high-quality JPEGs</li>
-</ul>
-<h4 id="423-error-handling-and-logging">4.2.3 Error Handling and Logging</h4>
-<ul>
-<li><strong>Comprehensive Error Capture</strong>: Catches and logs different types of errors at multiple levels</li>
-<li><strong>Detailed Logging</strong>: Records request details, cache hits/misses, and error information</li>
-<li><strong>Recovery Mechanisms</strong>: Attempts to recover from temporary API issues</li>
-<li><strong>Fallback Strategies</strong>: When images cannot be obtained, logs detailed reason</li>
-</ul>
-<h4 id="424-performance-optimization">4.2.4 Performance Optimization</h4>
-<ul>
-<li><strong>Session Reuse</strong>: Maintains HTTP session to reduce connection overhead</li>
-<li><strong>Request Batching</strong>: Groups related requests where possible</li>
-<li><strong>Memory Management</strong>: Properly handles large binary data to prevent memory issues</li>
-</ul>
-<h3 id="43-cache-management-cache_managerpy">4.3 Cache Management (<code>cache_manager.py</code>)</h3>
-<ul>
-<li><strong>Purpose</strong>: Optimizes API usage through caching</li>
-<li><strong>Key Features</strong>:</li>
-<li>Stores previously downloaded images</li>
-<li>Indexes images by location and camera parameters</li>
-<li>Reduces API costs and speeds up subsequent runs</li>
-</ul>
-<h4 id="431-technical-implementation-details">4.3.1 Technical Implementation Details</h4>
-<ul>
-<li><strong>CacheManager Class</strong>: Handles all caching operations</li>
-<li><strong>Initialization</strong>: Sets up cache directory, index file path, and cache configuration from <code>config.yaml</code></li>
-<li>
-<p><strong>Cache Structure</strong>: Creates and maintains a file-based cache system with index</p>
-</li>
-<li>
-<p><strong>Cache Index Implementation</strong>:</p>
-</li>
-<li><strong>Index Format</strong>: Maintains a JSON-based index mapping cache keys to file paths
-    <code>python
-    # Example index structure
-    {
-        "40.7128,-74.0060_heading90_pitch0_fov55": "cache/img_001.jpg",
-        "40.7128,-74.0060_heading270_pitch30_fov55": "cache/img_002.jpg"
-    }</code></li>
-<li><strong>Persistence</strong>: Saves and loads index to disk to maintain state between runs</li>
-<li>
-<p><strong>Synchronization</strong>: Ensures index file is properly updated after modifications</p>
-</li>
-<li>
-<p><strong>Cache Key Generation</strong>:</p>
-</li>
-<li><strong>Parameter Normalization</strong>: Standardizes location coordinates and camera parameters</li>
-<li><strong>Hash Formation</strong>: Creates unique hash strings that identify specific image requests
-    <code>python
-    # Key generation example
-    cache_key = f"{lat},{lon}_heading{int(heading)}_pitch{int(pitch)}_fov{int(fov)}"</code></li>
-<li>
-<p><strong>Collision Handling</strong>: Ensures different requests generate different keys</p>
-</li>
-<li>
-<p><strong>Cache Storage System</strong>:</p>
-</li>
-<li><strong>File Organization</strong>: Maintains organized file structure for cached images</li>
-<li><strong>Clean Directory Structure</strong>: Prevents cluttering by using subdirectories</li>
-<li><strong>Atomic Operations</strong>: Ensures file writes are completed properly to prevent corruption</li>
-</ul>
-<h4 id="432-cache-operations">4.3.2 Cache Operations</h4>
-<ul>
-<li><strong>Cache Retrieval</strong>:</li>
-<li><strong>Key Lookup</strong>: Efficiently searches index for matching cache keys</li>
-<li><strong>File Access</strong>: Reads cached images from disk when found</li>
-<li>
-<p><strong>Validation</strong>: Verifies file integrity before returning cached content</p>
-</li>
-<li>
-<p><strong>Cache Storage</strong>:</p>
-</li>
-<li><strong>Write Operations</strong>: Saves new images to cache with proper metadata</li>
-<li><strong>Index Update</strong>: Updates index with new entries</li>
-<li>
-<p><strong>Duplicate Handling</strong>: Prevents storing duplicate images</p>
-</li>
-<li>
-<p><strong>Cache Management</strong>:</p>
-</li>
-<li><strong>Size Monitoring</strong>: Tracks cache size to prevent excessive disk usage</li>
-<li><strong>Clearing Mechanism</strong>: Provides methods to clear cache if needed</li>
-<li><strong>Cache Invalidation</strong>: Logic to handle outdated cache entries</li>
-</ul>
-<h4 id="433-performance-considerations">4.3.3 Performance Considerations</h4>
-<ul>
-<li><strong>In-Memory Index</strong>: Maintains index in memory for fast lookups</li>
-<li><strong>Lazy Loading</strong>: Loads cache data only when needed</li>
-<li><strong>Disk I/O Optimization</strong>: Minimizes file operations</li>
-</ul>
-<h4 id="434-configurability">4.3.4 Configurability</h4>
-<ul>
-<li><strong>Enable/Disable Option</strong>: Can turn caching on/off via configuration</li>
-<li><strong>Cache Location</strong>: Configurable cache directory path</li>
-<li><strong>Retention Policy</strong>: Framework for future implementation of cache expiration</li>
-</ul>
-<h3 id="44-image-processing-image_processorpy">4.4 Image Processing (<code>image_processor.py</code>)</h3>
-<ul>
-<li><strong>Purpose</strong>: Handles image storage and naming</li>
-<li><strong>Key Features</strong>:</li>
-<li>Standardized naming convention</li>
-<li>Organizes images by route and capture parameters</li>
-<li>Supports future preprocessing capabilities</li>
-</ul>
-<h4 id="441-technical-implementation-details">4.4.1 Technical Implementation Details</h4>
-<ul>
-<li><strong>ImageProcessor Class</strong>: Manages image saving and organization</li>
-<li><strong>Initialization</strong>: Configures with output paths and image parameters from <code>config.yaml</code></li>
-<li>
-<p><strong>Directory Management</strong>: Ensures output directories exist</p>
-</li>
-<li>
-<p><strong>Filename Generation</strong>:</p>
-</li>
-<li><strong>Naming Convention</strong>: Creates standardized filenames based on capture parameters
-    <code>python
-    # Example filename format
-    filename = f"pl_r{route_id}_p{point_index}_{side}_h{int(heading)}_p{int(pitch)}_fov{int(fov)}.jpg"</code></li>
-<li>
-<p><strong>Components</strong>:</p>
-<ul>
-<li><code>pl_r</code>: Prefix indicating powerline image</li>
-<li><code>route_id</code>: Identifier for the specific route (e.g., "001")</li>
-<li><code>point_index</code>: Zero-based index of the point along the interpolated route</li>
-<li><code>side</code>: Direction relative to road bearing ("left", "right", "front", "rear")</li>
-<li><code>heading</code>: Camera heading in degrees (0-359)</li>
-<li><code>pitch</code>: Camera pitch in degrees (typically 0, 30, 60)</li>
-<li><code>fov</code>: Field of view in degrees (typically 40 or 55)</li>
-</ul>
-</li>
-<li>
-<p><strong>Side Determination Algorithm</strong>:</p>
-</li>
-<li><strong>Relative Heading Calculation</strong>: Computes camera orientation relative to road bearing
-    <code>python
-    relative_heading = (heading - road_bearing + 360) % 360</code></li>
-<li><strong>Classification Rules</strong>:<ul>
-<li>1° to 179°: "right" side</li>
-<li>181° to 359°: "left" side</li>
-<li>0° or 180°: "front" (if pitch &lt; 45°) or "rear" (if pitch ≥ 45°)</li>
-</ul>
-</li>
-</ul>
-<h4 id="442-image-handling">4.4.2 Image Handling</h4>
-<ul>
-<li><strong>Save Operations</strong>:</li>
-<li><strong>File Writing</strong>: Saves images with appropriate quality and format</li>
-<li><strong>Directory Creation</strong>: Creates nested directories as needed</li>
-<li>
-<p><strong>Overwrite Protection</strong>: Option to prevent accidental overwriting</p>
-</li>
-<li>
-<p><strong>Image Metadata</strong>:</p>
-</li>
-<li><strong>EXIF Data</strong>: Preserves or adds relevant metadata to saved images</li>
-<li><strong>Geolocation</strong>: Maintains geographic coordinates in image metadata</li>
-<li><strong>Camera Parameters</strong>: Records capture settings in metadata</li>
-</ul>
-<h4 id="443-future-extensions">4.4.3 Future Extensions</h4>
-<ul>
-<li><strong>Preprocessing Pipeline</strong>: Framework for adding image preprocessing steps</li>
-<li><strong>Noise Reduction</strong>: Placeholders for implementing noise filtering</li>
-<li><strong>Color Correction</strong>: Infrastructure for color normalization</li>
-<li>
-<p><strong>Resolution Standardization</strong>: Utilities for consistent image sizing</p>
-</li>
-<li>
-<p><strong>Quality Control</strong>:</p>
-</li>
-<li><strong>Image Validation</strong>: Checks for corrupt or unusable images</li>
-<li><strong>Blur Detection</strong>: Framework for identifying and flagging blurry images</li>
-<li><strong>Exposure Assessment</strong>: Structure for detecting over/under-exposed images</li>
-</ul>
-<h4 id="444-integration-points">4.4.4 Integration Points</h4>
-<ul>
-<li><strong>Acquisition Workflow</strong>: Seamlessly integrates with the image acquisition process</li>
-<li><strong>Dataset Preparation</strong>: Provides organized images ready for labeling</li>
-<li><strong>Extensibility</strong>: Modular design allows for adding new processing steps</li>
-</ul>
-<h2 id="5-configuration-guide">5. Configuration Guide</h2>
-<p>The system is configured through <code>config.yaml</code>. Key sections include:</p>
-<h3 id="51-api-configuration">5.1 API Configuration</h3>
-<div class="codehilite"><pre><span></span><code><span class="nt">api</span><span class="p">:</span>
+    <h2 id="4-data-collection-pipeline">4. Data Collection Pipeline</h2>
+    <h3 id="41-route-planning-route_processorpy">
+      4.1 Route Planning (<code>route_processor.py</code>)
+    </h3>
+    <ul>
+      <li><strong>Purpose</strong>: Plans routes for image collection</li>
+      <li><strong>Key Features</strong>:</li>
+      <li>Fetches route coordinates from Google Directions API</li>
+      <li>Interpolates points along route at specified intervals</li>
+      <li>Calculates road bearings and powerline offsets</li>
+      <li>Supports both left and right side powerline detection</li>
+    </ul>
+    <h4 id="411-technical-implementation-details">
+      4.1.1 Technical Implementation Details
+    </h4>
+    <ul>
+      <li>
+        <strong>RoutePlanner Class</strong>: The central component that handles
+        all route planning operations
+      </li>
+      <li>
+        <strong>Initialization</strong>: Takes configuration parameters from
+        <code>config.yaml</code> such as API key, base interval, powerline
+        offset, and powerline side (left, right, or both)
+      </li>
+      <li>
+        <strong>Google Directions API Integration</strong>: Uses the API to
+        fetch detailed polylines for routes between specified start and end
+        locations
+        <code
+          >python # Example API request base_url =
+          "https://maps.googleapis.com/maps/api/directions/json" params = {
+          'origin': start_location, 'destination': end_location, 'key':
+          self.api_key, }</code
+        >
+      </li>
+      <li>
+        <p>
+          <strong>Polyline Decoding</strong>: Processes encoded polylines from
+          the API response using the <code>polyline</code> library to extract
+          coordinate sequences
+          <code
+            >python # Decoding polylines to coordinates points_str =
+            step['polyline']['points'] decoded_points =
+            polyline.decode(points_str)</code
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Route Interpolation</strong>: Ensures consistent sampling of
+          points along the route
+        </p>
+      </li>
+      <li>
+        <strong>Adaptive Algorithm</strong>: Interpolates points at the
+        specified interval (default 20 meters) to create evenly spaced points
+        along the route
+      </li>
+      <li>
+        <strong>Geodetic Calculations</strong>: Uses
+        <code>geopy.distance</code> and <code>pyproj.Geod</code> for accurate
+        distance and bearing calculations on the Earth's surface
+      </li>
+      <li>
+        <p>
+          <strong>Point Generation</strong>: Creates new coordinate points that
+          maintain the exact specified interval
+          <code
+            >python # Interpolation example intermediate_point =
+            geopy.distance.distance( meters=needed_distance).destination(p1,
+            segment_bearing)</code
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Bearing Calculation</strong>: Determines road direction at
+          each point
+        </p>
+      </li>
+      <li>
+        <strong>Geodetic Azimuth</strong>: Calculates true bearing using
+        pyproj's geodetic functions rather than simple Euclidean calculations
+      </li>
+      <li>
+        <strong>Forward Looking</strong>: Computes bearing based on the
+        direction to the next point
+      </li>
+      <li>
+        <p>
+          <strong>Normalization</strong>: Ensures bearings are within 0-360
+          degrees
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Powerline Point Generation</strong>: Calculates potential
+          powerline locations based on road positions
+        </p>
+      </li>
+      <li>
+        <strong>Offset Calculation</strong>: Uses perpendicular offsets from the
+        road (default 10 meters) to estimate powerline locations
+      </li>
+      <li>
+        <strong>Side Selection</strong>: Supports left side, right side, or both
+        sides of the road
+      </li>
+      <li>
+        <strong>GeoSpatial Transformation</strong>: Uses Geod.fwd method to
+        calculate offset coordinates
+        <code
+          >python # Calculate offset point (lon, lat is reversed in pyproj)
+          lon_pl, lat_pl, _ = self.geod.fwd( lon, lat, powerline_bearing,
+          self.powerline_offset)</code
+        >
+      </li>
+    </ul>
+    <h4 id="412-error-handling-and-robustness">
+      4.1.2 Error Handling and Robustness
+    </h4>
+    <ul>
+      <li>
+        <strong>API Error Recovery</strong>: Implements exponential backoff with
+        retries for API failures
+      </li>
+      <li>
+        <strong>Input Validation</strong>: Checks for valid configuration and
+        API responses
+      </li>
+      <li>
+        <strong>Edge Cases</strong>: Handles special cases like identical
+        consecutive points and insufficient points
+      </li>
+    </ul>
+    <h4 id="413-output-format">4.1.3 Output Format</h4>
+    <p>
+      The <code>plan_route</code> method returns a dictionary containing: -
+      <code>route_points</code>: List of (latitude, longitude) tuples for the
+      interpolated route - <code>route_bearings</code>: List of bearings in
+      degrees for each route point - <code>powerline_points_left</code>: List of
+      potential powerline locations on the left side -
+      <code>powerline_points_right</code>: List of potential powerline locations
+      on the right side
+    </p>
+    <h3 id="42-image-acquisition-streetview_clientpy">
+      4.2 Image Acquisition (<code>streetview_client.py</code>)
+    </h3>
+    <ul>
+      <li><strong>Purpose</strong>: Manages Street View image collection</li>
+      <li><strong>Key Features</strong>:</li>
+      <li>Handles API requests with rate limiting</li>
+      <li>Implements exponential backoff for failed requests</li>
+      <li>Caches images to reduce API costs</li>
+      <li>Supports multiple camera angles and pitches</li>
+    </ul>
+    <h4 id="421-technical-implementation-details">
+      4.2.1 Technical Implementation Details
+    </h4>
+    <ul>
+      <li>
+        <strong>StreetViewClient Class</strong>: Core component responsible for
+        fetching images
+      </li>
+      <li>
+        <strong>Initialization</strong>: Configures with API key, request
+        intervals, retry parameters, and image dimensions from
+        <code>config.yaml</code>
+      </li>
+      <li>
+        <p>
+          <strong>Cache Integration</strong>: Connects with
+          <code>CacheManager</code> to optimize API usage
+        </p>
+      </li>
+      <li>
+        <p><strong>API Request Construction</strong>:</p>
+      </li>
+      <li>
+        <strong>URL Formation</strong>: Builds Google Street View Static API
+        URLs with precise parameters
+        <code
+          >python base_url = "https://maps.googleapis.com/maps/api/streetview"
+          params = { 'size': f"{self.image_width}x{self.image_height}",
+          'location': f"{lat},{lon}", 'heading': heading, 'pitch': pitch, 'fov':
+          fov, 'key': self.api_key }</code
+        >
+      </li>
+      <li>
+        <p>
+          <strong>Parameter Validation</strong>: Ensures all required parameters
+          are within valid ranges
+        </p>
+      </li>
+      <li>
+        <p><strong>Rate Limiting Implementation</strong>:</p>
+      </li>
+      <li>
+        <strong>Time-based Throttling</strong>: Enforces minimum wait times
+        between requests (configurable, default 0.1 seconds)
+      </li>
+      <li>
+        <strong>Last Request Tracking</strong>: Maintains timestamp of most
+        recent request to calculate appropriate wait time
+      </li>
+      <li>
+        <p>
+          <strong>Adaptive Delays</strong>: Dynamically adjusts wait times based
+          on API response codes
+        </p>
+      </li>
+      <li>
+        <p><strong>Exponential Backoff for Failures</strong>:</p>
+      </li>
+      <li>
+        <strong>Progressive Retry Logic</strong>: Increases wait time
+        exponentially after failed requests
+      </li>
+      <li>
+        <strong>Maximum Retry Configuration</strong>: Limits retry attempts
+        based on configuration
+      </li>
+      <li>
+        <p>
+          <strong>Error Classification</strong>: Different handling for server
+          errors (5xx), client errors (4xx), and network issues
+        </p>
+      </li>
+      <li>
+        <p><strong>Response Handling</strong>:</p>
+      </li>
+      <li>
+        <strong>Status Validation</strong>: Checks HTTP status codes and handles
+        different error scenarios
+      </li>
+      <li>
+        <strong>Binary Data Processing</strong>: Processes image binary data
+        from responses
+      </li>
+      <li>
+        <strong>Metadata Extraction</strong>: Captures relevant headers and
+        metadata from the API response
+      </li>
+    </ul>
+    <h4 id="422-image-retrieval-and-storage">
+      4.2.2 Image Retrieval and Storage
+    </h4>
+    <ul>
+      <li><strong>Cache-First Strategy</strong>:</li>
+      <li>
+        <strong>Check Cache</strong>: Verifies if requested image exists in
+        cache before making API call
+      </li>
+      <li>
+        <strong>Cache Key Generation</strong>: Creates unique keys based on
+        location and camera parameters
+      </li>
+      <li>
+        <p>
+          <strong>Update Cache</strong>: Stores newly fetched images in cache
+          with proper metadata
+        </p>
+      </li>
+      <li>
+        <p><strong>Direct Image Saving</strong>:</p>
+      </li>
+      <li>
+        <strong>Path Construction</strong>: Creates appropriate file paths based
+        on route ID and camera parameters
+      </li>
+      <li>
+        <strong>Directory Creation</strong>: Ensures target directories exist
+        before saving
+      </li>
+      <li><strong>Image Format</strong>: Saves images as high-quality JPEGs</li>
+    </ul>
+    <h4 id="423-error-handling-and-logging">
+      4.2.3 Error Handling and Logging
+    </h4>
+    <ul>
+      <li>
+        <strong>Comprehensive Error Capture</strong>: Catches and logs different
+        types of errors at multiple levels
+      </li>
+      <li>
+        <strong>Detailed Logging</strong>: Records request details, cache
+        hits/misses, and error information
+      </li>
+      <li>
+        <strong>Recovery Mechanisms</strong>: Attempts to recover from temporary
+        API issues
+      </li>
+      <li>
+        <strong>Fallback Strategies</strong>: When images cannot be obtained,
+        logs detailed reason
+      </li>
+    </ul>
+    <h4 id="424-performance-optimization">4.2.4 Performance Optimization</h4>
+    <ul>
+      <li>
+        <strong>Session Reuse</strong>: Maintains HTTP session to reduce
+        connection overhead
+      </li>
+      <li>
+        <strong>Request Batching</strong>: Groups related requests where
+        possible
+      </li>
+      <li>
+        <strong>Memory Management</strong>: Properly handles large binary data
+        to prevent memory issues
+      </li>
+    </ul>
+    <h3 id="43-cache-management-cache_managerpy">
+      4.3 Cache Management (<code>cache_manager.py</code>)
+    </h3>
+    <ul>
+      <li><strong>Purpose</strong>: Optimizes API usage through caching</li>
+      <li><strong>Key Features</strong>:</li>
+      <li>Stores previously downloaded images</li>
+      <li>Indexes images by location and camera parameters</li>
+      <li>Reduces API costs and speeds up subsequent runs</li>
+    </ul>
+    <h4 id="431-technical-implementation-details">
+      4.3.1 Technical Implementation Details
+    </h4>
+    <ul>
+      <li>
+        <strong>CacheManager Class</strong>: Handles all caching operations
+      </li>
+      <li>
+        <strong>Initialization</strong>: Sets up cache directory, index file
+        path, and cache configuration from <code>config.yaml</code>
+      </li>
+      <li>
+        <p>
+          <strong>Cache Structure</strong>: Creates and maintains a file-based
+          cache system with index
+        </p>
+      </li>
+      <li>
+        <p><strong>Cache Index Implementation</strong>:</p>
+      </li>
+      <li>
+        <strong>Index Format</strong>: Maintains a JSON-based index mapping
+        cache keys to file paths
+        <code
+          >python # Example index structure {
+          "40.7128,-74.0060_heading90_pitch0_fov55": "cache/img_001.jpg",
+          "40.7128,-74.0060_heading270_pitch30_fov55": "cache/img_002.jpg"
+          }</code
+        >
+      </li>
+      <li>
+        <strong>Persistence</strong>: Saves and loads index to disk to maintain
+        state between runs
+      </li>
+      <li>
+        <p>
+          <strong>Synchronization</strong>: Ensures index file is properly
+          updated after modifications
+        </p>
+      </li>
+      <li>
+        <p><strong>Cache Key Generation</strong>:</p>
+      </li>
+      <li>
+        <strong>Parameter Normalization</strong>: Standardizes location
+        coordinates and camera parameters
+      </li>
+      <li>
+        <strong>Hash Formation</strong>: Creates unique hash strings that
+        identify specific image requests
+        <code
+          >python # Key generation example cache_key =
+          f"{lat},{lon}_heading{int(heading)}_pitch{int(pitch)}_fov{int(fov)}"</code
+        >
+      </li>
+      <li>
+        <p>
+          <strong>Collision Handling</strong>: Ensures different requests
+          generate different keys
+        </p>
+      </li>
+      <li>
+        <p><strong>Cache Storage System</strong>:</p>
+      </li>
+      <li>
+        <strong>File Organization</strong>: Maintains organized file structure
+        for cached images
+      </li>
+      <li>
+        <strong>Clean Directory Structure</strong>: Prevents cluttering by using
+        subdirectories
+      </li>
+      <li>
+        <strong>Atomic Operations</strong>: Ensures file writes are completed
+        properly to prevent corruption
+      </li>
+    </ul>
+    <h4 id="432-cache-operations">4.3.2 Cache Operations</h4>
+    <ul>
+      <li><strong>Cache Retrieval</strong>:</li>
+      <li>
+        <strong>Key Lookup</strong>: Efficiently searches index for matching
+        cache keys
+      </li>
+      <li>
+        <strong>File Access</strong>: Reads cached images from disk when found
+      </li>
+      <li>
+        <p>
+          <strong>Validation</strong>: Verifies file integrity before returning
+          cached content
+        </p>
+      </li>
+      <li>
+        <p><strong>Cache Storage</strong>:</p>
+      </li>
+      <li>
+        <strong>Write Operations</strong>: Saves new images to cache with proper
+        metadata
+      </li>
+      <li><strong>Index Update</strong>: Updates index with new entries</li>
+      <li>
+        <p>
+          <strong>Duplicate Handling</strong>: Prevents storing duplicate images
+        </p>
+      </li>
+      <li>
+        <p><strong>Cache Management</strong>:</p>
+      </li>
+      <li>
+        <strong>Size Monitoring</strong>: Tracks cache size to prevent excessive
+        disk usage
+      </li>
+      <li>
+        <strong>Clearing Mechanism</strong>: Provides methods to clear cache if
+        needed
+      </li>
+      <li>
+        <strong>Cache Invalidation</strong>: Logic to handle outdated cache
+        entries
+      </li>
+    </ul>
+    <h4 id="433-performance-considerations">
+      4.3.3 Performance Considerations
+    </h4>
+    <ul>
+      <li>
+        <strong>In-Memory Index</strong>: Maintains index in memory for fast
+        lookups
+      </li>
+      <li><strong>Lazy Loading</strong>: Loads cache data only when needed</li>
+      <li><strong>Disk I/O Optimization</strong>: Minimizes file operations</li>
+    </ul>
+    <h4 id="434-configurability">4.3.4 Configurability</h4>
+    <ul>
+      <li>
+        <strong>Enable/Disable Option</strong>: Can turn caching on/off via
+        configuration
+      </li>
+      <li>
+        <strong>Cache Location</strong>: Configurable cache directory path
+      </li>
+      <li>
+        <strong>Retention Policy</strong>: Framework for future implementation
+        of cache expiration
+      </li>
+    </ul>
+    <h3 id="44-image-processing-image_processorpy">
+      4.4 Image Processing (<code>image_processor.py</code>)
+    </h3>
+    <ul>
+      <li><strong>Purpose</strong>: Handles image storage and naming</li>
+      <li><strong>Key Features</strong>:</li>
+      <li>Standardized naming convention</li>
+      <li>Organizes images by route and capture parameters</li>
+      <li>Supports future preprocessing capabilities</li>
+    </ul>
+    <h4 id="441-technical-implementation-details">
+      4.4.1 Technical Implementation Details
+    </h4>
+    <ul>
+      <li>
+        <strong>ImageProcessor Class</strong>: Manages image saving and
+        organization
+      </li>
+      <li>
+        <strong>Initialization</strong>: Configures with output paths and image
+        parameters from <code>config.yaml</code>
+      </li>
+      <li>
+        <p>
+          <strong>Directory Management</strong>: Ensures output directories
+          exist
+        </p>
+      </li>
+      <li>
+        <p><strong>Filename Generation</strong>:</p>
+      </li>
+      <li>
+        <strong>Naming Convention</strong>: Creates standardized filenames based
+        on capture parameters
+        <code
+          >python # Example filename format filename =
+          f"pl_r{route_id}_p{point_index}_{side}_h{int(heading)}_p{int(pitch)}_fov{int(fov)}.jpg"</code
+        >
+      </li>
+      <li>
+        <p><strong>Components</strong>:</p>
+        <ul>
+          <li><code>pl_r</code>: Prefix indicating powerline image</li>
+          <li>
+            <code>route_id</code>: Identifier for the specific route (e.g.,
+            "001")
+          </li>
+          <li>
+            <code>point_index</code>: Zero-based index of the point along the
+            interpolated route
+          </li>
+          <li>
+            <code>side</code>: Direction relative to road bearing ("left",
+            "right", "front", "rear")
+          </li>
+          <li><code>heading</code>: Camera heading in degrees (0-359)</li>
+          <li>
+            <code>pitch</code>: Camera pitch in degrees (typically 0, 30, 60)
+          </li>
+          <li>
+            <code>fov</code>: Field of view in degrees (typically 40 or 55)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p><strong>Side Determination Algorithm</strong>:</p>
+      </li>
+      <li>
+        <strong>Relative Heading Calculation</strong>: Computes camera
+        orientation relative to road bearing
+        <code
+          >python relative_heading = (heading - road_bearing + 360) % 360</code
+        >
+      </li>
+      <li>
+        <strong>Classification Rules</strong>:
+        <ul>
+          <li>1° to 179°: "right" side</li>
+          <li>181° to 359°: "left" side</li>
+          <li>
+            0° or 180°: "front" (if pitch &lt; 45°) or "rear" (if pitch ≥ 45°)
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h4 id="442-image-handling">4.4.2 Image Handling</h4>
+    <ul>
+      <li><strong>Save Operations</strong>:</li>
+      <li>
+        <strong>File Writing</strong>: Saves images with appropriate quality and
+        format
+      </li>
+      <li>
+        <strong>Directory Creation</strong>: Creates nested directories as
+        needed
+      </li>
+      <li>
+        <p>
+          <strong>Overwrite Protection</strong>: Option to prevent accidental
+          overwriting
+        </p>
+      </li>
+      <li>
+        <p><strong>Image Metadata</strong>:</p>
+      </li>
+      <li>
+        <strong>EXIF Data</strong>: Preserves or adds relevant metadata to saved
+        images
+      </li>
+      <li>
+        <strong>Geolocation</strong>: Maintains geographic coordinates in image
+        metadata
+      </li>
+      <li>
+        <strong>Camera Parameters</strong>: Records capture settings in metadata
+      </li>
+    </ul>
+    <h4 id="443-future-extensions">4.4.3 Future Extensions</h4>
+    <ul>
+      <li>
+        <strong>Preprocessing Pipeline</strong>: Framework for adding image
+        preprocessing steps
+      </li>
+      <li>
+        <strong>Noise Reduction</strong>: Placeholders for implementing noise
+        filtering
+      </li>
+      <li>
+        <strong>Color Correction</strong>: Infrastructure for color
+        normalization
+      </li>
+      <li>
+        <p>
+          <strong>Resolution Standardization</strong>: Utilities for consistent
+          image sizing
+        </p>
+      </li>
+      <li>
+        <p><strong>Quality Control</strong>:</p>
+      </li>
+      <li>
+        <strong>Image Validation</strong>: Checks for corrupt or unusable images
+      </li>
+      <li>
+        <strong>Blur Detection</strong>: Framework for identifying and flagging
+        blurry images
+      </li>
+      <li>
+        <strong>Exposure Assessment</strong>: Structure for detecting
+        over/under-exposed images
+      </li>
+    </ul>
+    <h4 id="444-integration-points">4.4.4 Integration Points</h4>
+    <ul>
+      <li>
+        <strong>Acquisition Workflow</strong>: Seamlessly integrates with the
+        image acquisition process
+      </li>
+      <li>
+        <strong>Dataset Preparation</strong>: Provides organized images ready
+        for labeling
+      </li>
+      <li>
+        <strong>Extensibility</strong>: Modular design allows for adding new
+        processing steps
+      </li>
+    </ul>
+    <h2 id="5-configuration-guide">5. Configuration Guide</h2>
+    <p>
+      The system is configured through <code>config.yaml</code>. Key sections
+      include:
+    </p>
+    <h3 id="51-api-configuration">5.1 API Configuration</h3>
+    <div class="codehilite">
+      <pre><span></span><code><span class="nt">api</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${GOOGLE_API_KEY}</span>
 <span class="w">  </span><span class="nt">min_request_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
 <span class="w">  </span><span class="nt">max_retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
 <span class="w">  </span><span class="nt">retry_delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
 <span class="w">  </span><span class="nt">image_width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">640</span>
 <span class="w">  </span><span class="nt">image_height</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">640</span>
-</code></pre></div>
+</code></pre>
+    </div>
 
-<h3 id="52-sampling-parameters">5.2 Sampling Parameters</h3>
-<div class="codehilite"><pre><span></span><code><span class="nt">sampling</span><span class="p">:</span>
+    <h3 id="52-sampling-parameters">5.2 Sampling Parameters</h3>
+    <div class="codehilite">
+      <pre><span></span><code><span class="nt">sampling</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">base_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20.0</span><span class="w">  </span><span class="c1"># meters between points</span>
 <span class="w">  </span><span class="nt">max_extra_points</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
-</code></pre></div>
+</code></pre>
+    </div>
 
-<h3 id="53-camera-settings">5.3 Camera Settings</h3>
-<div class="codehilite"><pre><span></span><code><span class="nt">camera</span><span class="p">:</span>
+    <h3 id="53-camera-settings">5.3 Camera Settings</h3>
+    <div class="codehilite">
+      <pre><span></span><code><span class="nt">camera</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">altitude</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.5</span><span class="w">  </span><span class="c1"># meters</span>
 <span class="w">  </span><span class="nt">pitch_values</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">30</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">60</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">fov_default</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">55</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">fov_special</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">40</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">relative_angles_right</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">90</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">45</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">135</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">relative_angles_left</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">270</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">310</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">230</span><span class="p p-Indicator">]</span>
-</code></pre></div>
+</code></pre>
+    </div>
 
-<h3 id="54-powerline-parameters">5.4 Powerline Parameters</h3>
-<div class="codehilite"><pre><span></span><code><span class="nt">powerline</span><span class="p">:</span>
+    <h3 id="54-powerline-parameters">5.4 Powerline Parameters</h3>
+    <div class="codehilite">
+      <pre><span></span><code><span class="nt">powerline</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">offset_distance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0</span><span class="w">  </span><span class="c1"># meters from road</span>
 <span class="w">  </span><span class="nt">side</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;both&quot;</span><span class="w">  </span><span class="c1"># right, left, or both</span>
-</code></pre></div>
+</code></pre>
+    </div>
 
-<h2 id="6-step-by-step-guide">6. Step-by-Step Guide</h2>
-<h3 id="61-initial-setup">6.1 Initial Setup</h3>
-<ol>
-<li>Clone the repository</li>
-<li>Install dependencies:
-   <code>bash
-   pip install -r requirements.txt</code></li>
-<li>Set up Google Cloud Platform:</li>
-<li>Create a project</li>
-<li>Enable required APIs</li>
-<li>Generate API key</li>
-<li>Set environment variable:
-     <code>bash
-     export GOOGLE_API_KEY="your-api-key"</code></li>
-</ol>
-<h3 id="62-route-preparation">6.2 Route Preparation</h3>
-<ol>
-<li>Create a <code>routes.csv</code> file in the <code>data</code> directory with columns:</li>
-<li><code>route_id</code>: Unique identifier (e.g., "001")</li>
-<li><code>start_location</code>: Starting point (address or lat,lon)</li>
-<li><code>end_location</code>: Ending point (address or lat,lon)</li>
-</ol>
-<h3 id="63-running-data-collection">6.3 Running Data Collection</h3>
-<ol>
-<li>Verify configuration in <code>config.yaml</code></li>
-<li>Run the acquisition script:
-   <code>bash
-   python -m src.acquisition.acquisition_run</code></li>
-<li>Optionally specify route ID in the script</li>
-</ol>
-<h3 id="64-monitoring-progress">6.4 Monitoring Progress</h3>
-<ul>
-<li>Check console output for:</li>
-<li>Route processing status</li>
-<li>Image acquisition progress</li>
-<li>API request statistics</li>
-<li>Error messages</li>
-<li>Monitor the <code>data/raw</code> directory for collected images</li>
-</ul>
-<h2 id="7-step-by-step-process">7. Step by Step Process</h2>
-<p>This section provides a detailed technical walkthrough of the exact sequence of operations that occur when running the data collection pipeline, from loading routes to saving images.</p>
-<h3 id="71-program-execution-flow">7.1 Program Execution Flow</h3>
-<ol>
-<li>
-<p><strong>Entry Point</strong>: <code>acquisition_run.py</code> - <code>run_acquisition()</code> function
-   <code>python
-   python -m src.acquisition.acquisition_run</code></p>
-</li>
-<li>
-<p><strong>Environment Setup</strong>:</p>
-</li>
-<li>Load environment variables (including API key)</li>
-<li>Start timing the process</li>
-<li>
-<p>Initialize logging</p>
-</li>
-<li>
-<p><strong>Configuration Loading</strong>:
-   <code>python
-   config = load_config(config_path)</code></p>
-</li>
-<li>Reads <code>config.yaml</code></li>
-<li>Substitutes environment variables (e.g., <code>${GOOGLE_API_KEY}</code>)</li>
-<li>
-<p>Validates essential configuration parameters</p>
-</li>
-<li>
-<p><strong>Component Initialization</strong>:
-   <code>python
-   cache_mgr = CacheManager(config)
-   route_planner = RoutePlanner(config)
-   streetview_cli = StreetViewClient(config, cache_mgr)
-   image_proc = ImageProcessor(config)</code></p>
-</li>
-<li>Each component reads its specific configuration sections</li>
-<li>Cache manager initializes cache directory and loads index</li>
-<li>Route planner initializes geodetic tools</li>
-<li>
-<p>Street View client configures request parameters</p>
-</li>
-<li>
-<p><strong>Route Data Loading</strong>:
-   <code>python
-   routes_file = os.path.join(config.get("paths", {}).get("data_dir", "data"), "routes.csv")
-   routes = load_routes(routes_file, route_id_filter=route_id)</code></p>
-</li>
-<li>Locates routes.csv file in the configured data directory</li>
-<li>Loads routes into a pandas DataFrame</li>
-<li>Optionally filters by specific route ID if provided</li>
-</ol>
-<h3 id="72-processing-each-route">7.2 Processing Each Route</h3>
-<p>For each route in the routes DataFrame, the following steps are executed:</p>
-<ol>
-<li><strong>Route Planning</strong>:
-   <code>python
-   planned_route = route_planner.plan_route(start_loc, end_loc)</code></li>
-<li><strong>Direction API Call</strong>: Fetches route data from Google Directions API
-     <code>python
-     route_coords = self._get_route_coordinates_from_api(start_location, end_location)</code></li>
-<li><strong>Route Interpolation</strong>: Generates evenly spaced points along the route
-     <code>python
-     interpolated_route = self._interpolate_route(route_coords)</code></li>
-<li><strong>Bearing Calculation</strong>: Determines road direction at each point
-     <code>python
-     bearings = self._calculate_route_bearings(interpolated_route)</code></li>
-<li><strong>Powerline Locations</strong>: Calculates potential powerline points with offsets
-     <code>python
-     powerline_points = self._calculate_powerline_points(interpolated_route, bearings)</code></li>
-<li>
-<p>Returns a dictionary with route points, bearings, and powerline points</p>
-</li>
-<li>
-<p><strong>Route Data Extraction</strong>:
-   <code>python
-   route_points = planned_route['route_points']
-   route_bearings = planned_route['route_bearings']</code></p>
-</li>
-<li>Extracts the interpolated route points (latitude, longitude pairs)</li>
-<li>Extracts corresponding bearing values for each point</li>
-</ol>
-<h3 id="73-processing-each-point-on-route">7.3 Processing Each Point on Route</h3>
-<p>For each point along the interpolated route:</p>
-<ol>
-<li><strong>Camera View Calculation</strong>:
-   <code>python
-   required_views = calculate_camera_views(road_bearing, camera_config)</code></li>
-<li>Determines all required camera views based on configuration</li>
-<li>Combines road bearing with relative angles (left/right sides)</li>
-<li>Applies configured pitch values</li>
-<li>Applies configured field of view (FOV) values</li>
-<li>
-<p>Returns a list of dictionaries with heading, pitch, and FOV parameters</p>
-</li>
-<li>
-<p><strong>Processing Each Camera View</strong>:
-   For each required view at a given location point:</p>
-</li>
-</ol>
-<p>a. <strong>Filename Preparation</strong>:
-      ```python
-      # Calculate side (right, left, front, rear) based on relative heading
-      relative_heading = (heading - road_bearing + 360) % 360
-      if 1 &lt;= relative_heading &lt;= 179:
-          side = "right"
-      elif 181 &lt;= relative_heading &lt;= 359:
-          side = "left"
-      else:
-          side = "front" if pitch &lt; 45 else "rear"</p>
-<div class="codehilite"><pre><span></span><code>  # Generate standardized filename
+    <h2 id="6-step-by-step-guide">6. Step-by-Step Guide</h2>
+    <h3 id="61-initial-setup">6.1 Initial Setup</h3>
+    <ol>
+      <li>Clone the repository</li>
+      <li>
+        Install dependencies: <code>bash pip install -r requirements.txt</code>
+      </li>
+      <li>Set up Google Cloud Platform:</li>
+      <li>Create a project</li>
+      <li>Enable required APIs</li>
+      <li>Generate API key</li>
+      <li>
+        Set environment variable:
+        <code>bash export GOOGLE_API_KEY="your-api-key"</code>
+      </li>
+    </ol>
+    <h3 id="62-route-preparation">6.2 Route Preparation</h3>
+    <ol>
+      <li>
+        Create a <code>routes.csv</code> file in the <code>data</code> directory
+        with columns:
+      </li>
+      <li><code>route_id</code>: Unique identifier (e.g., "001")</li>
+      <li><code>start_location</code>: Starting point (address or lat,lon)</li>
+      <li><code>end_location</code>: Ending point (address or lat,lon)</li>
+    </ol>
+    <h3 id="63-running-data-collection">6.3 Running Data Collection</h3>
+    <ol>
+      <li>Verify configuration in <code>config.yaml</code></li>
+      <li>
+        Run the acquisition script:
+        <code>bash python -m src.acquisition.acquisition_run</code>
+      </li>
+      <li>Optionally specify route ID in the script</li>
+    </ol>
+    <h3 id="64-monitoring-progress">6.4 Monitoring Progress</h3>
+    <ul>
+      <li>Check console output for:</li>
+      <li>Route processing status</li>
+      <li>Image acquisition progress</li>
+      <li>API request statistics</li>
+      <li>Error messages</li>
+      <li>Monitor the <code>data/raw</code> directory for collected images</li>
+    </ul>
+    <h2 id="7-step-by-step-process">7. Step by Step Process</h2>
+    <p>
+      This section provides a detailed technical walkthrough of the exact
+      sequence of operations that occur when running the data collection
+      pipeline, from loading routes to saving images.
+    </p>
+    <h3 id="71-program-execution-flow">7.1 Program Execution Flow</h3>
+    <ol>
+      <li>
+        <p>
+          <strong>Entry Point</strong>: <code>acquisition_run.py</code> -
+          <code>run_acquisition()</code> function
+          <code>python python -m src.acquisition.acquisition_run</code>
+        </p>
+      </li>
+      <li>
+        <p><strong>Environment Setup</strong>:</p>
+      </li>
+      <li>Load environment variables (including API key)</li>
+      <li>Start timing the process</li>
+      <li>
+        <p>Initialize logging</p>
+      </li>
+      <li>
+        <p>
+          <strong>Configuration Loading</strong>:
+          <code>python config = load_config(config_path)</code>
+        </p>
+      </li>
+      <li>Reads <code>config.yaml</code></li>
+      <li>
+        Substitutes environment variables (e.g., <code>${GOOGLE_API_KEY}</code>)
+      </li>
+      <li>
+        <p>Validates essential configuration parameters</p>
+      </li>
+      <li>
+        <p>
+          <strong>Component Initialization</strong>:
+          <code
+            >python cache_mgr = CacheManager(config) route_planner =
+            RoutePlanner(config) streetview_cli = StreetViewClient(config,
+            cache_mgr) image_proc = ImageProcessor(config)</code
+          >
+        </p>
+      </li>
+      <li>Each component reads its specific configuration sections</li>
+      <li>Cache manager initializes cache directory and loads index</li>
+      <li>Route planner initializes geodetic tools</li>
+      <li>
+        <p>Street View client configures request parameters</p>
+      </li>
+      <li>
+        <p>
+          <strong>Route Data Loading</strong>:
+          <code
+            >python routes_file = os.path.join(config.get("paths",
+            {}).get("data_dir", "data"), "routes.csv") routes =
+            load_routes(routes_file, route_id_filter=route_id)</code
+          >
+        </p>
+      </li>
+      <li>Locates routes.csv file in the configured data directory</li>
+      <li>Loads routes into a pandas DataFrame</li>
+      <li>Optionally filters by specific route ID if provided</li>
+    </ol>
+    <h3 id="72-processing-each-route">7.2 Processing Each Route</h3>
+    <p>
+      For each route in the routes DataFrame, the following steps are executed:
+    </p>
+    <ol>
+      <li>
+        <strong>Route Planning</strong>:
+        <code
+          >python planned_route = route_planner.plan_route(start_loc,
+          end_loc)</code
+        >
+      </li>
+      <li>
+        <strong>Direction API Call</strong>: Fetches route data from Google
+        Directions API
+        <code
+          >python route_coords =
+          self._get_route_coordinates_from_api(start_location,
+          end_location)</code
+        >
+      </li>
+      <li>
+        <strong>Route Interpolation</strong>: Generates evenly spaced points
+        along the route
+        <code
+          >python interpolated_route =
+          self._interpolate_route(route_coords)</code
+        >
+      </li>
+      <li>
+        <strong>Bearing Calculation</strong>: Determines road direction at each
+        point
+        <code
+          >python bearings =
+          self._calculate_route_bearings(interpolated_route)</code
+        >
+      </li>
+      <li>
+        <strong>Powerline Locations</strong>: Calculates potential powerline
+        points with offsets
+        <code
+          >python powerline_points =
+          self._calculate_powerline_points(interpolated_route, bearings)</code
+        >
+      </li>
+      <li>
+        <p>
+          Returns a dictionary with route points, bearings, and powerline points
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Route Data Extraction</strong>:
+          <code
+            >python route_points = planned_route['route_points'] route_bearings
+            = planned_route['route_bearings']</code
+          >
+        </p>
+      </li>
+      <li>
+        Extracts the interpolated route points (latitude, longitude pairs)
+      </li>
+      <li>Extracts corresponding bearing values for each point</li>
+    </ol>
+    <h3 id="73-processing-each-point-on-route">
+      7.3 Processing Each Point on Route
+    </h3>
+    <p>For each point along the interpolated route:</p>
+    <ol>
+      <li>
+        <strong>Camera View Calculation</strong>:
+        <code
+          >python required_views = calculate_camera_views(road_bearing,
+          camera_config)</code
+        >
+      </li>
+      <li>Determines all required camera views based on configuration</li>
+      <li>Combines road bearing with relative angles (left/right sides)</li>
+      <li>Applies configured pitch values</li>
+      <li>Applies configured field of view (FOV) values</li>
+      <li>
+        <p>
+          Returns a list of dictionaries with heading, pitch, and FOV parameters
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Processing Each Camera View</strong>: For each required view
+          at a given location point:
+        </p>
+      </li>
+    </ol>
+    <p>
+      a. <strong>Filename Preparation</strong>: ```python # Calculate side
+      (right, left, front, rear) based on relative heading relative_heading =
+      (heading - road_bearing + 360) % 360 if 1 &lt;= relative_heading &lt;=
+      179: side = "right" elif 181 &lt;= relative_heading &lt;= 359: side =
+      "left" else: side = "front" if pitch &lt; 45 else "rear"
+    </p>
+    <div class="codehilite">
+      <pre><span></span><code>  # Generate standardized filename
   filename = f&quot;pl_r{r_id}_p{i}_{side}_h{int(heading)}_p{int(pitch)}_fov{int(fov)}.jpg&quot;
   output_image_path = os.path.join(raw_images_dir, filename)
   ```
-</code></pre></div>
+</code></pre>
+    </div>
 
-<p>b. <strong>Image Retrieval</strong>:
-      <code>python
-      success = streetview_cli.get_image(lat, lon, output_image_path, **view_params)</code></p>
-<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="n">i</span><span class="o">.</span><span class="w"> </span><span class="o">**</span><span class="n">Cache</span><span class="w"> </span><span class="n">Check</span><span class="o">**</span><span class="p">:</span><span class="w"> </span><span class="n">Verifies</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">cache</span>
+    <p>
+      b. <strong>Image Retrieval</strong>:
+      <code
+        >python success = streetview_cli.get_image(lat, lon, output_image_path,
+        **view_params)</code
+      >
+    </p>
+    <div class="codehilite">
+      <pre><span></span><code><span class="w">  </span><span class="n">i</span><span class="o">.</span><span class="w"> </span><span class="o">**</span><span class="n">Cache</span><span class="w"> </span><span class="n">Check</span><span class="o">**</span><span class="p">:</span><span class="w"> </span><span class="n">Verifies</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">cache</span>
 <span class="w">     </span><span class="err">```</span><span class="n">python</span>
 <span class="w">     </span><span class="n">cache_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">_generate_cache_key</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span><span class="w"> </span><span class="n">lon</span><span class="p">,</span><span class="w"> </span><span class="n">heading</span><span class="p">,</span><span class="w"> </span><span class="n">pitch</span><span class="p">,</span><span class="w"> </span><span class="n">fov</span><span class="p">)</span>
 <span class="w">     </span><span class="n">cached_img_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">cache_mgr</span><span class="o">.</span><span class="n">get_from_cache</span><span class="p">(</span><span class="n">cache_key</span><span class="p">)</span>
@@ -705,10 +1122,12 @@
 <span class="w">      </span><span class="err">```</span>
 <span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">Saves</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">directory</span>
 <span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">Updates</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">index</span>
-</code></pre></div>
+</code></pre>
+    </div>
 
-<h3 id="74-sequence-diagram">7.4 Sequence Diagram</h3>
-<div class="codehilite"><pre><span></span><code>┌─────────────────┐<span class="w">     </span>┌───────────────┐<span class="w">    </span>┌───────────────┐<span class="w">    </span>┌───────────────┐<span class="w">    </span>┌───────────────┐
+    <h3 id="74-sequence-diagram">7.4 Sequence Diagram</h3>
+    <div class="codehilite">
+      <pre><span></span><code>┌─────────────────┐<span class="w">     </span>┌───────────────┐<span class="w">    </span>┌───────────────┐<span class="w">    </span>┌───────────────┐<span class="w">    </span>┌───────────────┐
 │<span class="w"> </span><span class="nv">acquisition_run</span><span class="w"> </span>│<span class="w">     </span>│<span class="w"> </span><span class="nv">RoutePlanner</span><span class="w">  </span>│<span class="w">    </span>│<span class="nv">StreetViewClient</span>│<span class="w">    </span>│<span class="w"> </span><span class="nv">CacheManager</span><span class="w">  </span>│<span class="w">    </span>│<span class="nv">ImageProcessor</span><span class="w"> </span>│
 └────────┬────────┘<span class="w">     </span>└───────┬───────┘<span class="w">    </span>└───────┬───────┬┘<span class="w">    </span>└───────┬───────┘<span class="w">    </span>└───────┬───────┘
 <span class="w">         </span>│<span class="w">                      </span>│<span class="w">                    </span>│<span class="w">       </span>│<span class="w">              </span>│<span class="w">                    </span>│
@@ -753,92 +1172,113 @@
 <span class="w">         </span>│<span class="o">&lt;</span>───────────────────────────────────────────────────────────────────────────────────────
 <span class="w">         </span>│<span class="w"> </span><span class="nv">success</span><span class="o">/</span><span class="nv">failure</span><span class="w">      </span>│<span class="w">                    </span>│<span class="w">       </span>│<span class="w">              </span>│<span class="w">                    </span>│
 <span class="w">         </span>│<span class="w">                      </span>│<span class="w">                    </span>│<span class="w">       </span>│<span class="w">              </span>│<span class="w">                    </span>│
-</code></pre></div>
+</code></pre>
+    </div>
 
-<h3 id="75-output-verification">7.5 Output Verification</h3>
-<p>To verify successful execution, you can check:</p>
-<ol>
-<li><strong>Console Output</strong>: Look for messages indicating successful route processing, image acquisition, and summary statistics.
-   ```
-   --- Route 001 finished. Saved 450 images for this route. ---</li>
-</ol>
-<p>Image acquisition process finished.
-   Summary:
-     - Total routes processed: 1/1
-     - Total images attempted: 450
-     - Total images saved: 450
-     - Total duration: 380.25 seconds
-   ```</p>
-<ol>
-<li><strong>Raw Images Directory</strong>:
-   <code>bash
-   ls -la data/raw/</code></li>
-<li>Should contain images named according to the pattern:
-     <code>pl_r&lt;route_id&gt;_p&lt;point_index&gt;_&lt;side&gt;_h&lt;heading&gt;_p&lt;pitch&gt;_fov&lt;fov&gt;.jpg</code></li>
-<li>
-<p>Example: <code>pl_r001_p0_right_h90_p0_fov55.jpg</code></p>
-</li>
-<li>
-<p><strong>Cache Directory</strong> (if enabled):
-   <code>bash
-   ls -la data/cache/</code></p>
-</li>
-<li>Should contain cached images and a cache index file</li>
-<li>Cache index.json should map location/parameter keys to image file paths</li>
-</ol>
-<h2 id="8-troubleshooting">8. Troubleshooting</h2>
-<h3 id="81-common-issues">8.1 Common Issues</h3>
-<ol>
-<li><strong>API Key Problems</strong></li>
-<li>Ensure <code>GOOGLE_API_KEY</code> is set</li>
-<li>Verify API billing is enabled</li>
-<li>
-<p>Check API quotas and limits</p>
-</li>
-<li>
-<p><strong>Route Planning Failures</strong></p>
-</li>
-<li>Validate <code>routes.csv</code> format</li>
-<li>Check address/coordinate formats</li>
-<li>
-<p>Ensure route is accessible via Street View</p>
-</li>
-<li>
-<p><strong>Image Acquisition Issues</strong></p>
-</li>
-<li>Check network connectivity</li>
-<li>Verify API rate limits</li>
-<li>Ensure sufficient disk space</li>
-</ol>
-<h3 id="82-error-messages">8.2 Error Messages</h3>
-<ul>
-<li>"Configuration file not found": Check <code>config.yaml</code> path</li>
-<li>"API key not found": Set <code>GOOGLE_API_KEY</code> environment variable</li>
-<li>"Routes CSV file not found": Create/check <code>routes.csv</code></li>
-<li>"Failed to get route from Directions API": Validate route endpoints</li>
-</ul>
-<h3 id="83-support-resources">8.3 Support Resources</h3>
-<ul>
-<li>Check project documentation</li>
-<li>Review Google API documentation</li>
-<li>Contact project maintainers</li>
-<li>Submit issues on project repository</li>
-</ul>
-<hr />
-<p><em>Note: This guide is maintained by the project team. For updates or corrections, please contact the project maintainers.</em> </p>
-        <script>
-            // Add print button
-            window.onload = function() {
-                // Create print instructions div
-                var printInstructions = document.createElement('div');
-                printInstructions.className = 'no-print';
-                printInstructions.style.backgroundColor = '#f0f8ff';
-                printInstructions.style.padding = '10px';
-                printInstructions.style.margin = '20px 0';
-                printInstructions.style.borderRadius = '5px';
-                printInstructions.style.border = '1px solid #add8e6';
-                
-                printInstructions.innerHTML = `
+    <h3 id="75-output-verification">7.5 Output Verification</h3>
+    <p>To verify successful execution, you can check:</p>
+    <ol>
+      <li>
+        <strong>Console Output</strong>: Look for messages indicating successful
+        route processing, image acquisition, and summary statistics. ``` ---
+        Route 001 finished. Saved 450 images for this route. ---
+      </li>
+    </ol>
+    <p>
+      Image acquisition process finished. Summary: - Total routes processed: 1/1
+      - Total images attempted: 450 - Total images saved: 450 - Total duration:
+      380.25 seconds ```
+    </p>
+    <ol>
+      <li>
+        <strong>Raw Images Directory</strong>:
+        <code>bash ls -la data/raw/</code>
+      </li>
+      <li>
+        Should contain images named according to the pattern:
+        <code
+          >pl_r&lt;route_id&gt;_p&lt;point_index&gt;_&lt;side&gt;_h&lt;heading&gt;_p&lt;pitch&gt;_fov&lt;fov&gt;.jpg</code
+        >
+      </li>
+      <li>
+        <p>Example: <code>pl_r001_p0_right_h90_p0_fov55.jpg</code></p>
+      </li>
+      <li>
+        <p>
+          <strong>Cache Directory</strong> (if enabled):
+          <code>bash ls -la data/cache/</code>
+        </p>
+      </li>
+      <li>Should contain cached images and a cache index file</li>
+      <li>
+        Cache index.json should map location/parameter keys to image file paths
+      </li>
+    </ol>
+    <h2 id="8-troubleshooting">8. Troubleshooting</h2>
+    <h3 id="81-common-issues">8.1 Common Issues</h3>
+    <ol>
+      <li><strong>API Key Problems</strong></li>
+      <li>Ensure <code>GOOGLE_API_KEY</code> is set</li>
+      <li>Verify API billing is enabled</li>
+      <li>
+        <p>Check API quotas and limits</p>
+      </li>
+      <li>
+        <p><strong>Route Planning Failures</strong></p>
+      </li>
+      <li>Validate <code>routes.csv</code> format</li>
+      <li>Check address/coordinate formats</li>
+      <li>
+        <p>Ensure route is accessible via Street View</p>
+      </li>
+      <li>
+        <p><strong>Image Acquisition Issues</strong></p>
+      </li>
+      <li>Check network connectivity</li>
+      <li>Verify API rate limits</li>
+      <li>Ensure sufficient disk space</li>
+    </ol>
+    <h3 id="82-error-messages">8.2 Error Messages</h3>
+    <ul>
+      <li>
+        "Configuration file not found": Check <code>config.yaml</code> path
+      </li>
+      <li>
+        "API key not found": Set <code>GOOGLE_API_KEY</code> environment
+        variable
+      </li>
+      <li>"Routes CSV file not found": Create/check <code>routes.csv</code></li>
+      <li>
+        "Failed to get route from Directions API": Validate route endpoints
+      </li>
+    </ul>
+    <h3 id="83-support-resources">8.3 Support Resources</h3>
+    <ul>
+      <li>Check project documentation</li>
+      <li>Review Google API documentation</li>
+      <li>Contact project maintainers</li>
+      <li>Submit issues on project repository</li>
+    </ul>
+    <hr />
+    <p>
+      <em
+        >Note: This guide is maintained by the project team. For updates or
+        corrections, please contact the project maintainers.</em
+      >
+    </p>
+    <script>
+      // Add print button
+      window.onload = function () {
+        // Create print instructions div
+        var printInstructions = document.createElement("div");
+        printInstructions.className = "no-print";
+        printInstructions.style.backgroundColor = "#f0f8ff";
+        printInstructions.style.padding = "10px";
+        printInstructions.style.margin = "20px 0";
+        printInstructions.style.borderRadius = "5px";
+        printInstructions.style.border = "1px solid #add8e6";
+
+        printInstructions.innerHTML = `
                     <h3>To create a PDF:</h3>
                     <ol>
                         <li>Click the "Print to PDF" button below</li>
@@ -847,11 +1287,10 @@
                     </ol>
                     <button onclick="window.print()" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">Print to PDF</button>
                 `;
-                
-                // Insert at the beginning of the body
-                document.body.insertBefore(printInstructions, document.body.firstChild);
-            };
-        </script>
-    </body>
-    </html>
-    
+
+        // Insert at the beginning of the body
+        document.body.insertBefore(printInstructions, document.body.firstChild);
+      };
+    </script>
+  </body>
+</html>

@@ -6,8 +6,8 @@ import numpy as np
 import shutil
 
 TARGET_SIZE = 640
-OUTPUT_DIR = Path('data/sleeves/add_train_sleeves_640')
-INPUT_DIR = Path('data/sleeves/add_train_sleeves')
+OUTPUT_DIR = Path('data/sleeves/sleeves_from_tony_640')
+INPUT_DIR = Path('data/sleeves/sleeves_from_tony')
 
 
 def get_enclosing_bbox(shapes: list) -> tuple:

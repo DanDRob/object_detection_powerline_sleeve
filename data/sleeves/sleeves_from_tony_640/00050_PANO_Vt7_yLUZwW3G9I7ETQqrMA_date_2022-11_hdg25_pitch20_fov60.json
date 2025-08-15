@@ -1,0 +1,46 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          91.17346938775512,
+          13.877551020408188
+        ],
+        [
+          119.7448979591837,
+          22.040816326530635
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          107.50000000000003,
+          71.02040816326533
+        ],
+        [
+          131.98979591836738,
+          78.67346938775512
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "00050_PANO_Vt7_yLUZwW3G9I7ETQqrMA_date_2022-11_hdg25_pitch20_fov60.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

@@ -1,0 +1,136 @@
+{
+  "version": "5.6.1",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          245.7616050768555,
+          18.79588839941263
+        ],
+        [
+          300.3070184101889,
+          63.9057273421439
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          24.242424242424242,
+          231.52984607631575
+        ],
+        [
+          63.76811594202888,
+          271.7094625823065
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          402.81071585419403,
+          226.0817624822831
+        ],
+        [
+          457.26833552920493,
+          266.942389437528
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          259.6398770311813,
+          328.2333298703952
+        ],
+        [
+          315.8541941150637,
+          370.4559777241482
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          341.3263065436977,
+          443.3240957943348
+        ],
+        [
+          404.56741326306525,
+          480.0986600540552
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          558.4889796223102,
+          310.131857856094
+        ],
+        [
+          615.4585771980677,
+          344.9040784728341
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "sleeve",
+      "points": [
+        [
+          401.1240620992536,
+          593.4327084756007
+        ],
+        [
+          453.7549407114625,
+          621.0678230496499
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "WechatIMG521.jpg",
+  "imageData": null,
+  "imageHeight": 640,
+  "imageWidth": 640
+}

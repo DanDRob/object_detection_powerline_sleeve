@@ -42,33 +42,33 @@ def get_image_dimensions(image_path: Path) -> tuple[int, int]:
 
 
 def main():
-    test_dir = Path("data/sleeves/sleeves_powerlines_v2")
+    test_dir = Path("data/sleeves/sleeves_v4")
 
     if not test_dir.exists():
         logging.error(f"Directory {test_dir} does not exist")
         return
 
-    # Find all JPEG files
-    jpeg_files = []
-    for ext in ['*.jpg', '*.jpeg', '*.JPG', '*.JPEG']:
-        jpeg_files.extend(test_dir.glob(ext))
+    # Find all image files (JPEG and PNG)
+    image_files = []
+    for ext in ['*.jpg', '*.jpeg', '*.JPG', '*.JPEG', '*.png', '*.PNG']:
+        image_files.extend(test_dir.glob(ext))
 
-    logging.info(f"Found {len(jpeg_files)} JPEG files")
+    logging.info(f"Found {len(image_files)} image files")
 
     # Check which ones don't have corresponding JSON files
     missing_json_count = 0
 
-    for jpeg_file in jpeg_files:
-        json_file = jpeg_file.with_suffix('.json')
+    for image_file in image_files:
+        json_file = image_file.with_suffix('.json')
 
         if not json_file.exists():
             logging.info(f"Creating missing JSON file: {json_file.name}")
 
             # Get image dimensions
-            width, height = get_image_dimensions(jpeg_file)
+            width, height = get_image_dimensions(image_file)
 
             # Create empty JSON template
-            empty_json = create_empty_json_template(jpeg_file, width, height)
+            empty_json = create_empty_json_template(image_file, width, height)
 
             # Write JSON file
             try:
@@ -82,19 +82,19 @@ def main():
 
     logging.info(f"Created {missing_json_count} missing JSON label files")
 
-    # Verify all JPEG files now have corresponding JSON files
+    # Verify all image files now have corresponding JSON files
     all_have_json = True
-    for jpeg_file in jpeg_files:
-        json_file = jpeg_file.with_suffix('.json')
+    for image_file in image_files:
+        json_file = image_file.with_suffix('.json')
         if not json_file.exists():
-            logging.error(f"JPEG file still missing JSON: {jpeg_file.name}")
+            logging.error(f"Image file still missing JSON: {image_file.name}")
             all_have_json = False
 
     if all_have_json:
         logging.info(
-            "✓ All JPEG files now have corresponding JSON label files")
+            "✓ All image files now have corresponding JSON label files")
     else:
-        logging.error("✗ Some JPEG files still missing JSON label files")
+        logging.error("✗ Some image files still missing JSON label files")
 
 
 if __name__ == "__main__":

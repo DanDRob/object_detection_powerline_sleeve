@@ -1,7 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
-import argparse
 import logging
 from pathlib import Path
 from typing import Dict, Tuple, List, Set
@@ -14,17 +11,16 @@ logging.basicConfig(
 )
 
 
-def parse_arguments() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Check dataset statistics: counts images, labels, and empty labels."
-    )
-    parser.add_argument(
-        "--dataset_path",
-        type=str,
-        required=True,
-        help="Path to the dataset root directory containing train/, val/, test/ folders.",
-    )
-    return parser.parse_args()
+# Configure dataset paths here. You can list multiple datasets.
+# Example:
+# DATASET_PATHS = [
+#     Path("data/sleeves/sleeves_v3_yolo"),
+#     Path("data/sleeves/sleeves_v4_yolo"),
+# ]
+DATASET_PATHS: List[Path] = [
+    Path("data/sleeves/sleeves_v3_yolo"),
+    Path("data/sleeves/sleeves_v4_yolo"),
+]
 
 
 def count_files(directory: Path, extension: str) -> int:
@@ -167,81 +163,83 @@ def check_split(split_dir: Path) -> Dict:
 
 
 def main() -> None:
-    args = parse_arguments()
-    dataset_path = Path(args.dataset_path)
-
-    if not dataset_path.exists():
-        logging.error(f"Dataset path not found: {dataset_path}")
+    if not DATASET_PATHS:
+        logging.error("DATASET_PATHS is empty. Please configure one or more dataset directories.")
         return
 
-    # Analyze each split
-    splits = ["train", "val", "test"]
-    results = {}
+    for dataset_path in DATASET_PATHS:
+        if not dataset_path.exists():
+            logging.error(f"Dataset path not found: {dataset_path}")
+            continue
 
-    print("\n=== Dataset Analysis ===")
-    print(f"Dataset path: {dataset_path}")
-    print("-" * 40)
+        # Analyze each split
+        splits = ["train", "val", "test"]
+        results = {}
 
-    for split in splits:
-        split_dir = dataset_path / split
-        results[split] = check_split(split_dir)
+        print("\n=== Dataset Analysis ===")
+        print(f"Dataset path: {dataset_path}")
+        print("-" * 40)
 
-        print(f"\n{split.upper()} Split:")
-        print(f"  Images:                {results[split]['images']}")
-        print(f"  Images with labels:    {results[split]['images_with_labels']}")
-        print(f"  Images without labels: {results[split]['images_without_labels']}")
-        print(f"  Instances:             {results[split]['instances']}")
-        print(f"  Label files:           {results[split]['label_files']}")
-        print(f"    - empty:             {results[split]['empty_label_files']}")
-        print(f"    - non-empty:         {results[split]['non_empty_label_files']}")
-        print(f"    - malformed:         {results[split]['malformed_labels']}")
-        print(f"  Labels without images: {results[split]['labels_without_images']}")
+        for split in splits:
+            split_dir = dataset_path / split
+            results[split] = check_split(split_dir)
 
-    # Calculate totals
-    total_images = sum(results[split]["images"] for split in splits)
-    total_json = sum(results[split]["json_files"] for split in splits)
-    total_images_with_labels = sum(
-        results[split]["images_with_labels"] for split in splits
-    )
-    total_images_without_labels = sum(
-        results[split]["images_without_labels"] for split in splits
-    )
-    total_instances = sum(results[split]["instances"] for split in splits)
-    total_label_files = sum(results[split]["label_files"] for split in splits)
-    total_empty_label_files = sum(
-        results[split]["empty_label_files"] for split in splits
-    )
-    total_non_empty_label_files = sum(
-        results[split]["non_empty_label_files"] for split in splits
-    )
-    total_malformed_labels = sum(
-        results[split]["malformed_labels"] for split in splits
-    )
-    total_labels_without_images = sum(
-        results[split]["labels_without_images"] for split in splits
-    )
+            print(f"\n{split.upper()} Split:")
+            print(f"  Images:                {results[split]['images']}")
+            print(f"  Images with labels:    {results[split]['images_with_labels']}")
+            print(f"  Images without labels: {results[split]['images_without_labels']}")
+            print(f"  Instances:             {results[split]['instances']}")
+            print(f"  Label files:           {results[split]['label_files']}")
+            print(f"    - empty:             {results[split]['empty_label_files']}")
+            print(f"    - non-empty:         {results[split]['non_empty_label_files']}")
+            print(f"    - malformed:         {results[split]['malformed_labels']}")
+            print(f"  Labels without images: {results[split]['labels_without_images']}")
 
-    print("\n=== SUMMARY ===")
-    print(f"Total images:             {total_images}")
-    print(f"Total JSON files:         {total_json}")
-    print(f"Total images w/ labels:   {total_images_with_labels}")
-    print(f"Total images w/o labels:  {total_images_without_labels}")
-    print(f"Total instances:          {total_instances}")
-    print(f"Total label files:        {total_label_files}")
-    print(f"  - empty:                {total_empty_label_files}")
-    print(f"  - non-empty:            {total_non_empty_label_files}")
-    print(f"Total malformed labels:   {total_malformed_labels}")
-    print(f"Labels without images:    {total_labels_without_images}")
-
-    # Check for potential issues
-    if total_empty_label_files > 0:
-        print(f"\n⚠️ Warning: Found {total_empty_label_files} empty label files!")
-    if total_malformed_labels > 0:
-        print(f"\n⚠️ Warning: Found {total_malformed_labels} malformed label files!")
-    if total_labels_without_images > 0:
-        print(
-            f"\n⚠️ Warning: Found {total_labels_without_images} label files without matching images!"
+        # Calculate totals
+        total_images = sum(results[split]["images"] for split in splits)
+        total_json = sum(results[split]["json_files"] for split in splits)
+        total_images_with_labels = sum(
+            results[split]["images_with_labels"] for split in splits
         )
+        total_images_without_labels = sum(
+            results[split]["images_without_labels"] for split in splits
+        )
+        total_instances = sum(results[split]["instances"] for split in splits)
+        total_label_files = sum(results[split]["label_files"] for split in splits)
+        total_empty_label_files = sum(
+            results[split]["empty_label_files"] for split in splits
+        )
+        total_non_empty_label_files = sum(
+            results[split]["non_empty_label_files"] for split in splits
+        )
+        total_malformed_labels = sum(
+            results[split]["malformed_labels"] for split in splits
+        )
+        total_labels_without_images = sum(
+            results[split]["labels_without_images"] for split in splits
+        )
+
+        print("\n=== SUMMARY ===")
+        print(f"Total images:             {total_images}")
+        print(f"Total JSON files:         {total_json}")
+        print(f"Total images w/ labels:   {total_images_with_labels}")
+        print(f"Total images w/o labels:  {total_images_without_labels}")
+        print(f"Total instances:          {total_instances}")
+        print(f"Total label files:        {total_label_files}")
+        print(f"  - empty:                {total_empty_label_files}")
+        print(f"  - non-empty:            {total_non_empty_label_files}")
+        print(f"Total malformed labels:   {total_malformed_labels}")
+        print(f"Labels without images:    {total_labels_without_images}")
+
+        # Check for potential issues
+        if total_empty_label_files > 0:
+            print(f"\n⚠️ Warning: Found {total_empty_label_files} empty label files!")
+        if total_malformed_labels > 0:
+            print(f"\n⚠️ Warning: Found {total_malformed_labels} malformed label files!")
+        if total_labels_without_images > 0:
+            print(
+                f"\n⚠️ Warning: Found {total_labels_without_images} label files without matching images!"
+            )
 
 
 if __name__ == "__main__":

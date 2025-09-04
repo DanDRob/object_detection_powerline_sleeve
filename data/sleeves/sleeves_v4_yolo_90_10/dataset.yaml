@@ -1,7 +1,0 @@
-
-path: /Users/danielroberts/Downloads/object_detection_powerline_sleeve/data/sleeves/sleeves_v4_yolo_90_10
-train: train/images
-val: val/images
-
-nc: 1
-names: ['sleeve']

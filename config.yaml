@@ -119,7 +119,7 @@ detection:
 visualization:
   save_images: true
   draw_bounding_boxes: true
-  line_thickness: 2S
+  line_thickness: 2
   text_size: 1.0
   map:
     enabled: true

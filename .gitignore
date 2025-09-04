@@ -97,6 +97,11 @@ output/
 results/
 data/cache/
 data/powerlines/powerlines_yolo.zip
+data/sleeves/sleeves_v5_yolo.zip
+data/sleeves/sleeves_v4_yolo.zip
+data/sleeves/sleeves_powerlines_v2_yolo.zip
+
+
 scripts/build_thesis_docx.py
 Thesis-Template_Aug.2019.docx
 thesis_draft.md

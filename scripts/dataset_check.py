@@ -18,8 +18,9 @@ logging.basicConfig(
 #     Path("data/sleeves/sleeves_v4_yolo"),
 # ]
 DATASET_PATHS: List[Path] = [
-    Path("data/sleeves/sleeves_v3_yolo"),
-    Path("data/sleeves/sleeves_v4_yolo"),
+    Path("data/sleeves/sleeves_v4_org_yolo"),
+    Path("data/powerlines/powerlines_yolo")
+
 ]
 
 

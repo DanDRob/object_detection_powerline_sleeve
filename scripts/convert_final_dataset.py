@@ -17,12 +17,12 @@ logging.basicConfig(
 
 # Define paths
 DATA_DIR = Path("data/sleeves")
-SOURCE_DIR = DATA_DIR / "sleeves_from_tony_640"
-TARGET_DIR = DATA_DIR / "sleeves_from_tony_640_yolo"
+SOURCE_DIR = DATA_DIR / "sleeves_v4"
+TARGET_DIR = DATA_DIR / "sleeves_v4_org_yolo"
 
 # Splits
-TRAIN_SPLIT = 1.0
-VAL_SPLIT = 0.0
+TRAIN_SPLIT = 0.85
+VAL_SPLIT = 0.15
 
 # Class map
 CLASS_MAP = {"sleeve": 0}

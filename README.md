@@ -1,6 +1,7 @@
 # Powerline Sleeve Detection
 
 This project detects powerline sleeves from Google Street View images using YOLOv12.
+Final Project report can be viewed using the following link: https://docs.google.com/document/d/1RsHusC6kWwPUfkBeQyUASQZ29fyRe4P1Mfr5pA0K1-s/edit?tab=t.0#heading=h.yml1oshqlpep
 
 ## Project Structure
 
